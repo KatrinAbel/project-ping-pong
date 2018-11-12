@@ -17,24 +17,37 @@ function ensureAuthenticated(req, res, next) {
   }
 }
 
-router.get("/profile", (req,res,next) => {
-  res.render("user/profile-edit");
+router.get("/profile", ensureAuthenticated, (req,res,next) => {
+  let user = req.user
+  res.render("user/profile", {user});
 })
 
-router.post('/profile-edit', uploadCloud.single('photo'), (req, res, next) => {
-  const updateUser = new User({
+router.get("/profile-edit", ensureAuthenticated, (req,res,next) => {
+  let user = req.user
+  res.render("user/profile-edit", {user});
+})
+
+router.post('/profile-edit', ensureAuthenticated, uploadCloud.single('photo'), (req, res, next) => {
+  let id = req.user._id
+  let update = {
     username: req.body.username, 
-    teamName: "WeWork", 
-    imgPath: req.file.url, 
-  })
-  updateUser.save()
+    team: req.body.team, 
+    level: req.body.level,
+  }
+  if (req.file && req.file.url) {
+    update.imgPath = req.file.url
+  }
+  User.findByIdAndUpdate(id, update)
   .then(user => {
-    res.redirect('/')
+    console.log(user)
+    res.redirect('/profile')
   })
   .catch(error => {
     console.log(error)
   })
 });
+
+
 
 
 module.exports = router;

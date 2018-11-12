@@ -1,17 +1,26 @@
 <br>
 <h1>Profile page</h1>
 
-<div id="picture-holder"></div><br>
+<div id="picture-holder">
+  <img src={{user.imgPath}} id="default-profile-picture" alt="user-image">
+  {{!-- <img src="{{this.imgPath}}" alt="user"> --}}
+</div><br>
+{{!-- <input type="file" name="photo" value={{user.imgPath}}> --}}
 
 <div>
-<p>Username: some code here</p>
-<p>Club name: some code here</p>
+ <label>Username:</label><p name="username"> {{user.username}} </p>
+  <br>
 
-<p>Level: some code here</p>
+   <label>Team:</label><p name="team"> {{user.team}} </p>
+  <br>
+
+   <label>Level:</label><p name="level"> {{user.level}} </p>
+   <br>
+
 
 </div>
 
-<button type="submit">Edit profile</button>
+{{!-- <button type="submit">Edit profile</button> --}}
 
 <form action="/profile-edit">
   <input type="submit" value="Edit profile">

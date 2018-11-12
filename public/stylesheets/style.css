@@ -7,16 +7,10 @@ a {
   color: #00B7FF;
 }
 
-/* #default-profile-picture{
-  height: 500px;
-  width: 500px;
+#default-profile-picture{
+  height: 8%;
+  width: 8%;
 
-} */
+} 
 
-#picture-holder{
-  height: 100px;
-  width: 100px;
-  background-color: grey;
-  
-}
 

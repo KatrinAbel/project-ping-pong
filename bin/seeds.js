@@ -4,44 +4,55 @@
 // $ node bin/seeds.js
 
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const User = require("../models/User");
+const Table = require("../models/Table");
 
 const bcryptSalt = 10;
 
 mongoose
-  .connect('mongodb://localhost/project-ping-pong', {useNewUrlParser: true})
+  .connect(
+    "mongodb://localhost/project-ping-pong",
+    { useNewUrlParser: true }
+  )
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error("Error connecting to mongo", err);
   });
 
-let users = [
+let table = [
   {
-    username: "alice",
-    password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    location: {
+      type: "Point",
+      coordinates: [52.4986316, 13.3642971]
+    },
+    address: "Eichhornstraße 3, 10785 Berlin",
+    description: "Located in the 21st floor at the coworking space WeWork",
+    type: "private"
   },
   {
-    username: "bob",
-    password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at"
+    }
   }
-]
+];
 
-User.deleteMany()
-.then(() => {
-  return User.create(users)
-})
-.then(usersCreated => {
-  console.log(`${usersCreated.length} users created with the following id:`);
-  console.log(usersCreated.map(u => u._id));
-})
-.then(() => {
-  // Close properly the connection to Mongoose
-  mongoose.disconnect()
-})
-.catch(err => {
-  mongoose.disconnect()
-  throw err
-})
+Table.deleteMany()
+  .then(() => {
+    return Table.create(table);
+  })
+  .then(tableCreated => {
+    console.log(`${tableCreated.length} table created with the following id:`);
+    console.log(tableCreated.map(u => u._id));
+  })
+  .then(() => {
+    // Close properly the connection to Mongoose
+    mongoose.disconnect();
+  })
+  .catch(err => {
+    mongoose.disconnect();
+    throw err;
+  });
