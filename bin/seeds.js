@@ -1,4 +1,4 @@
-// Seeds file that remove all users and create 2 new users
+/* // Seeds file that remove all users and create 2 new users
 
 // To execute this seed, run from the root of the project
 // $ node bin/seeds.js
@@ -18,7 +18,7 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
-let users = [
+ let users = [
   {
     username: "alice",
     password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
@@ -27,7 +27,7 @@ let users = [
     username: "bob",
     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
   }
-]
+] 
 
 User.deleteMany()
 .then(() => {
@@ -44,4 +44,4 @@ User.deleteMany()
 .catch(err => {
   mongoose.disconnect()
   throw err
-})
+}) */
