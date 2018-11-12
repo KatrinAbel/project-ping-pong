@@ -1,0 +1,27 @@
+<h2>confirm</h2>
+
+<form action="/confirm" method="POST">
+
+<div>
+  <p>Your playground: 
+  <input type="text" name="table" value={{tableData._id}}>
+    {{tableData.address}}</p>
+</div>
+
+<div>
+  <p>Your opponent:
+  <input type="text" name="opponent" value={{._id}}>
+   {{.username}}
+  </p>
+</div>
+
+<div>
+  <p>Your message:</p>
+  <input type="textarea" name="message" placeholder="Specify time and date and send that invite asap!" size="40">
+</div>
+
+<button type="submit">
+  <a href="/homepage">It's on</a>
+</button>
+
+</form>
