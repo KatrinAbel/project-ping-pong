@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const User = require("../models/User")
-const uploadCloud = require('../config/cloudinary.js');
+// const uploadCloud = require("../config/cloudinary");
 //const Table = require("")
 //const Match = require("")
 
@@ -13,3 +13,5 @@ function ensureAuthenticated(req, res, next) {
     res.redirect('/auth/login')
   }
 }
+
+module.exports = router;

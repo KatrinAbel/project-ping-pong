@@ -18,7 +18,7 @@ const userSchema = new Schema({
     type: { type: String }, 
     coordinates: [Number], 
     // If I want to put a default for coordinates number where do I specify that?
-    default: [52.5063688, 13.3711224,]
+    // default: [52.5063688, 13.3711224,]
   },
   company: String,
   club: {type: String, default: "wework"},
