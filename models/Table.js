@@ -5,8 +5,7 @@ const tableSchema = new Schema(
   {
     location: {
       type: { type: String },
-      coordinates: [Number],
-      default: [number]
+      coordinates: [Number] 
     },
     address: String,
     description: String,
