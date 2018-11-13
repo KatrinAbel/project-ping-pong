@@ -9,15 +9,26 @@
   <label for="username">Username</label>
   <input id="username" type="text" name="username" placeholder="Your name">
   <br>
-  
+
   <br><br>
 
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
   <br>
 
+  <br><br>
+
+  <label for="team">Team</label>
+  <select name="team">
+    <option></option>
+    <option name="wework-Potsdamer-Platz">wework, Potsdamer Platz</option>
+    <option name="wework-atAtrium-Tower">wework, at Atrium Tower</option>
+  </select>
+  <br>
+
+
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
@@ -29,5 +40,3 @@
     <a href="/auth/login">Login</a>
   </p>
 </form>
-
-

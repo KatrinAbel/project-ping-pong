@@ -7,7 +7,7 @@ const tableSchema = new Schema(
       type: { type: String },
       coordinates: [Number] 
     },
-    name: String,
+    team: String,
     address: String,
     description: String,
     type: { type: String, enum: ["public", "private"] }

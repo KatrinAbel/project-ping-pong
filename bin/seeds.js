@@ -28,7 +28,7 @@ let table = [
       type: "Point",
       coordinates: [52.4986316, 13.3642971]
     },
-    name: "wework, at Atrium Tower",
+    team: "wework, at Atrium Tower",
     address: "Eichhornstraße 3, 10785 Berlin",
     description: "Located in the 21st floor at the coworking space WeWork",
     type: "private"
@@ -44,7 +44,7 @@ let table = [
       type: "Point",
       coordinates: [52.508391, 13.3702326]
     },
-    name: "wework, Potsdamer Platz",
+    team: "wework, Potsdamer Platz",
     address: "Stresemannstraße 123, 10963 Berlin",
     description: "Located on the public floor at the coworking space WeWork",
     type: "private"
