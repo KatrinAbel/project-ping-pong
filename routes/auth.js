@@ -36,7 +36,7 @@ router.post("/signup", (req, res, next) => {
   const team = req.body.team;
   if (username === "" || password === "" || email === "" || team === "") {
     res.render("auth/signup", {
-      message: "Indicate username, team, password and e-mail"
+      message: "Indicate email, username, password and team"
     });
     return;
   }
@@ -51,10 +51,10 @@ router.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
-      email,
       username,
-      team,
-      password: hashPass
+      password: hashPass,
+      email,
+      team
     });
 
     newUser

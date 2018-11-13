@@ -2,12 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const uploadCloud = require("../config/cloudinary");
-<<<<<<< HEAD
-// const cloudinary = require('cloudinary');
-
-=======
 const cloudinary = require("cloudinary");
->>>>>>> d5ddd345b77cbad2e37bad68d139333e5497bd35
 
 //const Table = require("")
 //const Match = require("")

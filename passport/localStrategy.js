@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-const passport      = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const User          = require('../models/User');
-const bcrypt        = require('bcryptjs');
-=======
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
->>>>>>> d5ddd345b77cbad2e37bad68d139333e5497bd35
 
 passport.use(
   new LocalStrategy(
