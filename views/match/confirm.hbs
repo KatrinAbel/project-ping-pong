@@ -1,22 +1,22 @@
 <h2>Confirm your match</h2>
 
-<form action="/confirm/submit" method="POST">
+<form action="/confirm" method="POST">
 
 <div>
   <p>Your playground:</p>
-  <input type="text"name="table" value={{table._id}}>
-  <p>{{table.address}}</p>
+  <input type="text"name="table" value={{tableData._id}}>
+  <p>{{tableData.address}}</p>
 </div>
 
 <div>
   <p>Your opponent:</p>
   {{!-- if opponent direct is true display opponentdirect otherwise display opponentrandom --}}
   {{#if opponentDirect}}
-   <input name="opponentDirect" value={{opponentDirect._id}}>
+   <input id="opponentDirect" name="opponentDirect" value={{opponentDirect._id}}>
    <p>{{opponentDirect.username}}</p>
    {{!-- <option name="opponentDirect" value={{opponentDirect._id}}>{{opponentDirect.username}}</option> --}}
   {{else}}
-  <input name="opponentRandom" value={{opponentRandom._id}}>
+  <input id="opponentRandom" name="opponentRandom" value={{opponentRandom._id}}>
   <p>{{opponentRandom.username}}</p>
   {{/if}}
 </div>

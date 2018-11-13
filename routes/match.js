@@ -23,35 +23,33 @@ let transporter = nodemailer.createTransport({
   }
 });
 
+/* GET table page */
+router.get('/match', ensureAuthenticated, (req, res, next) => {
+  Table.find()
+  .then(tableData => {
+    res.render("match/table", {tableData})
+  })
+})
+
 /* GET player page */
-router.get('/player', (req, res, next) => {
-  let p1 = Table.find()
-  let p2 = User.find()
-  Promise.all([p1, p2])
-  .then(values => {
+router.get('/match/:id', ensureAuthenticated, (req, res, next) => {
+  let id = req.params.id
 
-    // Displaying selected table
-    let tableData = values[0][0].address
-
-    // Passing userData to be able to select direct user
-    let userData = values[1]
-
-    // Defining randomUser
-    // Put this here or define as third promise and pass in promise.all?
-    User.find()
-    .then(data => {
+  // Passing selected table
+  Table.findById(id)
+  .then(tableData => {
+    let tableTeam = tableData.team
+    
+    // Defining randomUser based on selected table
+    User.find({team: tableTeam})
+    .then(userData=> {
       let usernames = []
-      for (let i = 0; i<data.length; i++) {
-        usernames.push(data[i].username)
+      for (let i = 0; i<userData.length; i++) {
+        usernames.push(userData[i].username)
       }
       let randomName = usernames[Math.floor(Math.random()*usernames.length)]
-      console.log("debug randomName", randomName)
-      
-      // Render match/player site
-      console.log("player table passed", tableData)
-      console.log("player user passed", userData)
-      console.log("player random passed", randomName)
-      res.render('match/player', {tableData, userData, randomName});
+
+      res.render("match/player", {tableData, randomName})
     })
   })
 });
@@ -69,67 +67,51 @@ router.get('/player', (req, res, next) => {
 // });
 
 /* POST handle input direct player */
-router.post("/confirm/direct", ensureAuthenticated, (req, res, next) => {
- p1 = Table.find()
-  // .then(tableData => {
-  // let table = tableData[0]
-  // console.log("confirm debug table id", table._id)
-  // console.log("confirm debug table address", table.address)
-  // res.render('match/confirm', {table});
-  // })
-
-p2 = User.findOne({username: req.body.directOpponent})
-//  // Passing entire user object to confirm page
-//  .then(opponentDirect => {
-//    console.log("confirm debug direct opponent", opponentDirect)
-//    res.render("match/confirm", {opponentDirect})
-//  })
+router.post("/match/:id/direct", ensureAuthenticated, (req, res, next) => {
+  let id = req.params.id
+  p1 = Table.findById(id)
+  p2 = User.findOne({username: req.body.directOpponent})
 
  Promise.all([p1, p2])
  .then(values => {
-   let table = values[0][0]
+   let tableData = values[0]
    let opponentDirect = values[1]
-   res.render("match/confirm", {table, opponentDirect})
+   // put in if statement if (!opponentDirect) res.render("match/:id") again
+   res.render("match/confirm", {tableData, opponentDirect})
  })
 })
 
 /* POST handle input random player */
-router.post("/confirm/random", ensureAuthenticated, (req, res, next) => {
-  p1 = Table.find()
+router.post("/match/:id/random", ensureAuthenticated, (req, res, next) => {
+  let id = req.params.id
+  p1 = Table.findById(id)
   p2 = User.findOne({username: req.body.randomOpponent})
-  // // Passing entire user object to confirm page
-  // .then(opponentRandom => {
-  //   console.log("debug random opponent", opponentRandom)
-  //   res.render("match/confirm", {opponentRandom})
-  // })
 
-  Promise.all([p1, p2])
-  .then(values => {
-    let table = values[0][0]
-    let opponentRandom = values[1]
-    res.render("match/confirm", {table, opponentRandom})
-  })
+ Promise.all([p1, p2])
+ .then(values => {
+   let tableData = values[0]
+   let opponentRandom = values[1]
+   console.log("debug user", opponentRandom)
+   res.render("match/confirm", {tableData, opponentRandom})
  })
+})
 
 /* POST handle match input and send confirmation e-mail */
-router.post("/confirm/submit", ensureAuthenticated, (req, res, next) => {
+router.post("/confirm", ensureAuthenticated, (req, res, next) => {
 
   // define variables for new match
   let table = req.body.table
-  console.log("debug table", table)
+
   let playerOne = req.user._id
-  console.log("debug playerOne", playerOne)
-  // let playerTwo = () => {
-  //     if (req.body.opponentDirect) {
-  //       req.body.opponentDirect
-  //     }
-  //     else {req.body.opponentRandom}
-  //   }
-  let playerTwo = req.body.opponentDirect
-  // let playerTwo = req.body.opponentRandom
-  console.log("debug playerTwo", playerTwo)
+ 
+  let playerTwo;
+    if(req.body.opponentDirect){
+      playerTwo = req.body.opponentDirect
+      } else {
+      playerTwo = req.body.opponentRandom
+      }
+
   let message = req.body.message
-  console.log("debug message", message)
 
   // create new match based on input
   let newMatch = new Match ({
