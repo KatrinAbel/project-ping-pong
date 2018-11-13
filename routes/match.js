@@ -146,7 +146,7 @@ router.post("/confirm", ensureAuthenticated, (req, res, next) => {
         `,
       })
 
-      .then(info => res.render('/homepage'))
+      .then(info => res.render('homepage'))
       .catch(error => console.log("Error sending mail", error))
     })
   })
