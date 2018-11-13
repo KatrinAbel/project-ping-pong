@@ -10,7 +10,7 @@ function ensureAuthenticated(req, res, next) {
   if (req.user) {
     return next();
   } else {
-    res.redirect('/auth/login')
+    res.redirect("/auth/login");
   }
 }
 

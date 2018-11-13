@@ -5,7 +5,10 @@ const userSchema = new Schema(
   {
     username: String,
     password: String,
-    imgPath: String,
+    imgPath: {
+      type: String,
+      default: "../images/default-user.png"
+    },
     email: {
       type: String,
       unique: true,
@@ -18,10 +21,13 @@ const userSchema = new Schema(
     },
     location: {
       type: { type: String },
-      coordinates: [Number] 
+      coordinates: [Number]
     },
     company: String,
-    team: { type: String, enum: ["wework, Potsdamer Platz", "wework, at Atrium Tower"] },
+    team: {
+      type: String,
+      enum: ["wework, Potsdamer Platz", "wework, at Atrium Tower"]
+    },
     points: { type: Number, default: 0 }
   },
   {

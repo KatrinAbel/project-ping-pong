@@ -1,5 +1,5 @@
 const express = require("express");
-const passport = require('passport');
+const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
 
@@ -11,18 +11,19 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
-
-
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+  res.render("auth/login", { message: req.flash("error") });
 });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/homepage",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/homepage",
+    failureRedirect: "/auth/login",
+    failureFlash: true,
+    passReqToCallback: true
+  })
+);
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -32,8 +33,11 @@ router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  if (username === "" || password === "" || email === "") {
-    res.render("auth/signup", { message: "Indicate username, password and e-mail" });
+  const team = req.body.team;
+  if (username === "" || password === "" || email === "" || team === "") {
+    res.render("auth/signup", {
+      message: "Indicate username, team, password and e-mail"
+    });
     return;
   }
 
@@ -49,19 +53,20 @@ router.post("/signup", (req, res, next) => {
     const newUser = new User({
       email,
       username,
+      team,
       password: hashPass
     });
 
-    newUser.save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
+    newUser
+      .save()
+      .then(() => {
+        res.redirect("/auth/login");
+      })
+      .catch(err => {
+        res.render("auth/signup", { message: "Something went wrong" });
+      });
   });
 });
-
 
 router.get("/logout", (req, res) => {
   req.logout();
