@@ -16,13 +16,23 @@
 
 <body>
 
+
+  </section>
+
   <nav>
-    <a href="/">Home</a>
+    {{#if isConnected}}
+    <a href="/homepage">Home</a>
+    <a href="/match">Find a match</a>
+    <a href="/pending-invite">Pending request</a>
+    <a href="/open-games">Open games</a>
+    <a href="/profile">Profile</a>
+    <a href="/auth/logout">Logout</a>
+    {{else}}
     <a href="/auth/login">Login</a>
     <a href="/auth/signup">Sign up</a>
-    <a href="/auth/logout">Logout</a>
-    <a href="/profile">Profile</a>
+    {{/if}}
   </nav>
+
 
   {{{body}}}
   {{!-- Bootstrap js --}}

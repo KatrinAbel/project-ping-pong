@@ -24,7 +24,10 @@ const userSchema = new Schema(
       coordinates: [Number]
     },
     company: String,
-    team: { type: String, default: "wework" },
+    team: {
+      type: String,
+      enum: ["wework, Potsdamer Platz", "wework, at Atrium Tower"]
+    },
     points: { type: Number, default: 0 }
   },
   {

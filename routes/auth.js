@@ -33,9 +33,10 @@ router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  if (username === "" || password === "" || email === "") {
+  const team = req.body.team;
+  if (username === "" || password === "" || email === "" || team === "") {
     res.render("auth/signup", {
-      message: "Indicate username, password and e-mail"
+      message: "Indicate username, team, password and e-mail"
     });
     return;
   }
@@ -52,13 +53,14 @@ router.post("/signup", (req, res, next) => {
     const newUser = new User({
       email,
       username,
+      team,
       password: hashPass
     });
 
     newUser
       .save()
       .then(() => {
-        res.redirect("/");
+        res.redirect("/auth/login");
       })
       .catch(err => {
         res.render("auth/signup", { message: "Something went wrong" });
