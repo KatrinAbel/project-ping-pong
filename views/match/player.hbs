@@ -1,0 +1,26 @@
+<h2>Player</h2>
+
+<div>
+  <p>Your playground: {{tableData}}</p>
+</div>
+
+<div>
+  <h3>Choose your opponent</h3>
+
+  <p>I know who I want to play:</p>
+  <form action="/confirm/direct" method="POST">
+  <input type="text" name="directOpponent" placeholder="Put in username of your opponent">
+  <button type="submit">Select opponent</button>
+  </form>
+
+<br>
+<p>OR</p>
+<br>
+
+  <p>Are you up for a new challenge?</p>
+  <form action="/confirm/random" method="POST">
+  <input type="text" name="randomOpponent" value={{randomName}}>
+  <button type="submit">Select opponent</button>
+  </form>
+
+</div>

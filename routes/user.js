@@ -3,10 +3,8 @@ const router  = express.Router();
 const User = require("../models/User")
 const uploadCloud = require("../config/cloudinary");
 const cloudinary = require('cloudinary');
-
-
-//const Table = require("")
-//const Match = require("")
+const Table = require("../models/Table")
+const Match = require("../models/Match")
 
 /* Ensure logged in middleware */
 function ensureAuthenticated(req, res, next) {
@@ -17,16 +15,41 @@ function ensureAuthenticated(req, res, next) {
   }
 }
 
+// GET profile page
 router.get("/profile", ensureAuthenticated, (req,res,next) => {
   let user = req.user
   res.render("user/profile", {user});
 })
 
+// GET profile-edit page
 router.get("/profile-edit", ensureAuthenticated, (req,res,next) => {
   let user = req.user
   res.render("user/profile-edit", {user});
 })
 
+// GET profile page
+router.get("/pending-invite", ensureAuthenticated, (req,res,next) => {
+  let id = req.user._id
+  Match.find({_player2: id})
+  .populate("_player1")
+  .then(matchData => {
+    res.render("match/pending-invite", {matchData});
+  })
+})
+
+// GET matches from database
+router.get('/', (req, res, next) => {
+  Match.find()
+  .then(() => {
+    res.render('pending-invite');
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+});
+
+
+// Lets the user update their profile
 router.post('/profile-edit', ensureAuthenticated, uploadCloud.single('photo'), (req, res, next) => {
   let id = req.user._id
   let update = {
@@ -46,6 +69,21 @@ router.post('/profile-edit', ensureAuthenticated, uploadCloud.single('photo'), (
     console.log(error)
   })
 });
+
+// Delete logged in user-profile from DB
+router.post('/profile-delete', ensureAuthenticated, (req, res, next) => {
+  let id = req.user._id
+  User.findByIdAndDelete(id)
+  .then(user => {
+    // console.log(user)
+    res.redirect('/auth/signup')
+  })
+  .catch(error => {
+    console.log(error)
+  })
+});
+
+
 
 
 
