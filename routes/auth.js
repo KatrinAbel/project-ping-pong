@@ -31,7 +31,9 @@ router.get("/signup", (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
+  console.log("USERNAME: ", username);
   const email = req.body.email;
+  console.log("EMAIL: ", email);
   const password = req.body.password;
   const team = req.body.team;
   if (username === "" || password === "" || email === "" || team === "") {
@@ -42,6 +44,7 @@ router.post("/signup", (req, res, next) => {
   }
 
   User.findOne({ username }, "username", (err, user) => {
+    console.log("req.body.team.enum");
     if (user !== null) {
       res.render("auth/signup", { message: "The username already exists" });
       return;

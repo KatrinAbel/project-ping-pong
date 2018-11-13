@@ -1,0 +1,16 @@
+  <br>
+  <h1>Pending invitation</h1>
+
+
+<br><br>
+  {{#each matchData}}
+<p>You have an invite from: {{this._player1.username}}</p>
+  <br>
+
+  <p>Message from oponent: {{this.message}}</p>  
+  <br><br>
+
+<input type="submit" value="Accept match">
+<br><br>
+<input type="submit" value="Decline match">
+  {{/each}}
