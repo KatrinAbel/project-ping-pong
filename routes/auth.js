@@ -1,5 +1,5 @@
 const express = require("express");
-const passport = require('passport');
+const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
 
@@ -7,17 +7,23 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 
-
-router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+router.get("/signup", (req, res, next) => {
+  res.render("auth/signup");
 });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/homepage",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
+router.get("/login", (req, res, next) => {
+  res.render("auth/login", { message: req.flash("error") });
+});
+
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/homepage",
+    failureRedirect: "/auth/login",
+    failureFlash: true,
+    passReqToCallback: true
+  })
+);
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -28,7 +34,9 @@ router.post("/signup", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   if (username === "" || password === "" || email === "") {
-    res.render("auth/signup", { message: "Indicate username, password and e-mail" });
+    res.render("auth/signup", {
+      message: "Indicate username, password and e-mail"
+    });
     return;
   }
 
@@ -47,13 +55,14 @@ router.post("/signup", (req, res, next) => {
       password: hashPass
     });
 
-    newUser.save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
+    newUser
+      .save()
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch(err => {
+        res.render("auth/signup", { message: "Something went wrong" });
+      });
   });
 });
 

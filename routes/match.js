@@ -1,6 +1,6 @@
-const express = require('express');
-const router  = express.Router();
-const User = require("../models/User")
+const express = require("express");
+const router = express.Router();
+const User = require("../models/User");
 //const Table = require("")
 //const Match = require("")
 
@@ -9,7 +9,7 @@ function ensureAuthenticated(req, res, next) {
   if (req.user) {
     return next();
   } else {
-    res.redirect('/auth/login')
+    res.redirect("/auth/login");
   }
 }
 

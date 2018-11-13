@@ -4,7 +4,6 @@
 // $ node bin/seeds.js
 
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
 const Table = require("../models/Table");
 
 const bcryptSalt = 10;
