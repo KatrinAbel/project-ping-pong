@@ -10,7 +10,23 @@
   <p>Message from oponent: {{this.message}}</p>  
   <br><br>
 
+<form action="/pending-invite/decline/{{this._id}}" method="POST">
+<input type="submit" value="Decline Match">
+</form>
+
+<form action="/pending-invite/accept/{{this._id}}" method="POST">
 <input type="submit" value="Accept match">
+</form>
+
+
+{{!-- <form action="/homepage" method="POST" enctype="multipart/form-data">
+  <input type="submit" value="Accept match">
+</form>
+
+<form action="/homepage" method="POST" enctype="multipart/form-data">
+  <input type="submit" value="Decline match">
+</form> --}}
+
 <br><br>
-<input type="submit" value="Decline match">
   {{/each}}
+
