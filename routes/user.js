@@ -21,24 +21,12 @@ function ensureAuthenticated(req, res, next) {
 // GET profile page
 router.get("/pending-invite", ensureAuthenticated, (req,res,next) => {
   let id = req.user._id
-  Match.find({_player2: id})
+  Match.find({_player2: id, status: "pending"})
   .populate("_player1")
   .then(matchData => {
     res.render("match/pending-invite", {matchData});
   })
 })
-
-// GET matches from database
-router.get('/', (req, res, next) => {
-  Match.find()
-  .then(() => {
-    res.render('pending-invite');
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-});
-
 
 // Lets the user update their profile
 router.post('/profile-edit', ensureAuthenticated, uploadCloud.single('photo'), (req, res, next) => {
@@ -53,7 +41,6 @@ router.post('/profile-edit', ensureAuthenticated, uploadCloud.single('photo'), (
   }
   User.findByIdAndUpdate(id, update)
   .then(user => {
-    console.log(user)
     res.redirect('/profile')
   })
   .catch(error => {
@@ -66,7 +53,6 @@ router.post('/profile-delete', ensureAuthenticated, (req, res, next) => {
   let id = req.user._id
   User.findByIdAndDelete(id)
   .then(user => {
-    // console.log(user)
     res.redirect('/auth/signup')
   })
   .catch(error => {
@@ -74,7 +60,36 @@ router.post('/profile-delete', ensureAuthenticated, (req, res, next) => {
   })
 });
 
+// POST 
+// delete match if user presses the "decline match" button
+router.post('/pending-invite/decline/:id', ensureAuthenticated, (req,res,next) =>{
+  let id = req.params.id
+  console.log("debug id", id)
+  Match.findByIdAndDelete(id)
+  .then(match => {
+    res.redirect('/homepage') 
+  })
+  .catch(error => {
+    console.log(error)
+  })
+})
 
+// POST 
+// accept match if user presses the "accept match" button
+// uptates the status of the user in a specitic match
+router.post('/pending-invite/accept/:id', ensureAuthenticated, (req,res,next) =>{
+  let id = req.params.id
+  let update = {
+    status: "open"
+} 
+  Match.findByIdAndUpdate(id, update)
+  .then(match => {
+    res.redirect('/homepage') 
+  })
+  .catch(error => {
+    console.log(error)
+  })
+});
 
 router.get("/profile", ensureAuthenticated, (req, res, next) => {
   let user = req.user;
@@ -85,30 +100,5 @@ router.get("/profile-edit", ensureAuthenticated, (req, res, next) => {
   let user = req.user;
   res.render("user/profile-edit", { user });
 });
-
-router.post(
-  "/profile-edit",
-  ensureAuthenticated,
-  uploadCloud.single("photo"),
-  (req, res, next) => {
-    let id = req.user._id;
-    let update = {
-      username: req.body.username,
-      team: req.body.team,
-      level: req.body.level
-    };
-    if (req.file && req.file.url) {
-      update.imgPath = req.file.url;
-    }
-    User.findByIdAndUpdate(id, update)
-      .then(user => {
-        console.log(user);
-        res.redirect("/profile");
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-);
 
 module.exports = router;
