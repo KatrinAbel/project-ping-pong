@@ -64,6 +64,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 app.locals.title = 'Ping & Pong';
 
 
+
 // Enable authentication using session + passport
 app.use(session({
   secret: 'irongenerator',
@@ -94,6 +95,7 @@ app.use('/', require('./routes/match'));
 app.use('/', require('./routes/index'));
 
 app.use('/auth', require('./routes/auth'));
+
       
 
 module.exports = app;

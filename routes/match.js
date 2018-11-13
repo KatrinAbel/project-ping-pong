@@ -137,7 +137,6 @@ router.post("/confirm/submit", ensureAuthenticated, (req, res, next) => {
     _player1: playerOne,
     _player2: playerTwo,
     message: message,
-    status: "pending",
   })
   console.log("debug newMatch", newMatch)
 
