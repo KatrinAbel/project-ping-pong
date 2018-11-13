@@ -4,7 +4,7 @@
 
 <div>
   <p>Your playground:</p>
-  <input type="text"name="table" value={{tableData._id}}>
+  <input type="hidden"name="table" value={{tableData._id}}>
   <p>{{tableData.address}}</p>
 </div>
 
@@ -12,11 +12,11 @@
   <p>Your opponent:</p>
   {{!-- if opponent direct is true display opponentdirect otherwise display opponentrandom --}}
   {{#if opponentDirect}}
-   <input id="opponentDirect" name="opponentDirect" value={{opponentDirect._id}}>
+   <input type="hidden" name="opponentDirect" value={{opponentDirect._id}}>
    <p>{{opponentDirect.username}}</p>
    {{!-- <option name="opponentDirect" value={{opponentDirect._id}}>{{opponentDirect.username}}</option> --}}
   {{else}}
-  <input id="opponentRandom" name="opponentRandom" value={{opponentRandom._id}}>
+  <input type="hidden" name="opponentRandom" value={{opponentRandom._id}}>
   <p>{{opponentRandom.username}}</p>
   {{/if}}
 </div>

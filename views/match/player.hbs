@@ -1,13 +1,12 @@
-<h2>Player</h2>
+<h2>Choose your oppontent</h2>
 
 <div>
   <p>Your playground: {{tableData.address}}</p>
 </div>
 
 <div>
-  <h3>Choose your opponent</h3>
 
-  <p>I know who I want to play:</p>
+  <p><strong>I know who I want to play:</strong></p>
   <p>Just type in the username of your frenemy and let the game begin:</p>
   <form action="/match/{{tableData._id}}/direct" method="POST">
   <input type="text" name="directOpponent" placeholder="Put in username of your opponent">
@@ -18,10 +17,11 @@
 <h2>OR</h2>
 <br>
 
-  <p>Are you up for a new challenge?</p>
+  <p><strong>Are you up for a new challenge?</strong></p>
   <p>Let us choose a random opponent for your next game:</p>
   <form action="/match/{{tableData._id}}/random" method="POST">
-  <input type="text" name="randomOpponent" value={{randomName}}>
+  <input type="hidden" name="randomOpponent" value={{randomName}}>
+  <p>{{randomName}}</p>
   <button type="submit">Select opponent</button>
   </form>
 

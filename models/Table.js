@@ -11,14 +11,7 @@ const tableSchema = new Schema(
     address: String,
     description: String,
     type: { type: String, enum: ["public", "private"] }
-  },
-  {
-    timestamps: {
-      createdAt: "created_at",
-      updatedAt: "updated_at"
-    }
-  }
-);
+});
 
 const Table = mongoose.model("Table", tableSchema);
 module.exports = Table;

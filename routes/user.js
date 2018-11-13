@@ -28,16 +28,16 @@ router.get("/pending-invite", ensureAuthenticated, (req,res,next) => {
   })
 })
 
-// GET matches from database
-router.get('/', (req, res, next) => {
-  Match.find()
-  .then(() => {
-    res.render('pending-invite');
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-});
+// // GET matches from database
+// router.get('/', (req, res, next) => {
+//   Match.find()
+//   .then(() => {
+//     res.render('pending-invite');
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+// });
 
 
 // Lets the user update their profile

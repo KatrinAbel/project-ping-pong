@@ -1,12 +1,8 @@
-// Seeds file that remove all users and create 2 new users
-
 // To execute this seed, run from the root of the project
 // $ node bin/seeds.js
 
 const mongoose = require("mongoose");
 const Table = require("../models/Table");
-
-const bcryptSalt = 10;
 
 mongoose
   .connect(
@@ -22,6 +18,7 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
+// Tables to be created
 let table = [
   {
     location: {
@@ -34,12 +31,6 @@ let table = [
     type: "private"
   },
   {
-    timestamps: {
-      createdAt: "created_at",
-      updatedAt: "updated_at"
-    }
-  },
-  {
     location: {
       type: "Point",
       coordinates: [52.508391, 13.3702326]
@@ -49,23 +40,12 @@ let table = [
     description: "Located on the public floor at the coworking space WeWork",
     type: "private"
   },
-  {
-    timestamps: {
-      createdAt: "created_at",
-      updatedAt: "updated_at"
-    }
-  }
 ];
 
-
-
-Table.deleteMany()
-  .then(() => {
-    return Table.create(table);
-  })
+// Function to create tables
+Table.create(table)
   .then(tableCreated => {
     console.log(`${tableCreated.length} table created with the following id:`);
-    console.log(tableCreated.map(u => u._id));
   })
   .then(() => {
     // Close properly the connection to Mongoose
