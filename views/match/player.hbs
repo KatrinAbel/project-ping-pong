@@ -1,18 +1,16 @@
 <h2>Player</h2>
 
 <div>
-  <p>Your playground: {{tableData.address}}</p>
+  <p>Your playground: {{tableData}}</p>
 </div>
 
 <div>
   <h3>Choose your opponent</h3>
 
   <p>I know who I want to play:</p>
-  <form action="/confirm" method="POST">
+  <form action="/confirm/direct" method="POST">
   <input type="text" name="directOpponent" placeholder="Put in username of your opponent">
-  <button type="submit">
-  <a href="/confirm">Select opponent</a>
-  </button>
+  <button type="submit">Select opponent</button>
   </form>
 
 <br>
@@ -20,11 +18,9 @@
 <br>
 
   <p>Are you up for a new challenge?</p>
-  <form action="/confirm" method="POST">
+  <form action="/confirm/random" method="POST">
   <input type="text" name="randomOpponent" value={{randomName}}>
-  <button type="submit">
-  <a href="/confirm">Select opponent</a>
-  </button>
+  <button type="submit">Select opponent</button>
   </form>
 
 </div>

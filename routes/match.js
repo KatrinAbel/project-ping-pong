@@ -1,10 +1,9 @@
 const express = require('express');
 const router  = express.Router();
-const Table = require("../models/Table")
-const User = require("../models/User")
 const nodemailer = require("nodemailer")
-//const Table = require("")
-//const Match = require("")
+const User = require("../models/User")
+const Table = require("../models/Table")
+const Match = require("../models/Match")
 
 /* Ensure logged in middleware */
 function ensureAuthenticated(req, res, next) {
@@ -32,11 +31,10 @@ router.get('/player', (req, res, next) => {
   .then(values => {
 
     // Displaying selected table
-    let tableData = values[0]
+    let tableData = values[0][0].address
 
     // Passing userData to be able to select direct user
     let userData = values[1]
-
 
     // Defining randomUser
     // Put this here or define as third promise and pass in promise.all?
@@ -46,78 +44,132 @@ router.get('/player', (req, res, next) => {
       for (let i = 0; i<data.length; i++) {
         usernames.push(data[i].username)
       }
-      console.log("debug usernames", usernames)
+      let randomName = usernames[Math.floor(Math.random()*usernames.length)]
+      console.log("debug randomName", randomName)
+      
+      // Render match/player site
+      console.log("player table passed", tableData)
+      console.log("player user passed", userData)
+      console.log("player random passed", randomName)
+      res.render('match/player', {tableData, userData, randomName});
     })
-    let randomName = usernames[Math.floor(Math.random()*usernames.length)]
-    console.log("debug randomName", randomName)
-
-    // Render match/player site
-    res.render('match/player', {tableData, userData, randomName});
   })
 });
 
 /* GET confirm page */
-router.get('/confirm', (req, res, next) => {
-  res.render('match/confirm');
-});
+// NOT NEEDED since the route should only be accessible through the player site
+// router.get('/confirm', (req, res, next) => {
+//   Table.find()
+//   .then(tableData => {
+//   let table = tableData[0]
+//   console.log("confirm debug table id", table._id)
+//   console.log("confirm debug table address", table.address)
+//   res.render('match/confirm', {table});
+//   })
+// });
 
 /* POST handle input direct player */
-router.post("/confirm", ensureAuthenticated, (req, res, next) => {
- let opponentDirect = User.findOne({username: req.body.directOpponent})
- console.log("debug direct opponent", opponentDirect)
+router.post("/confirm/direct", ensureAuthenticated, (req, res, next) => {
+ p1 = Table.find()
+  // .then(tableData => {
+  // let table = tableData[0]
+  // console.log("confirm debug table id", table._id)
+  // console.log("confirm debug table address", table.address)
+  // res.render('match/confirm', {table});
+  // })
+
+p2 = User.findOne({username: req.body.directOpponent})
+//  // Passing entire user object to confirm page
+//  .then(opponentDirect => {
+//    console.log("confirm debug direct opponent", opponentDirect)
+//    res.render("match/confirm", {opponentDirect})
+//  })
+
+ Promise.all([p1, p2])
+ .then(values => {
+   let table = values[0][0]
+   let opponentDirect = values[1]
+   res.render("match/confirm", {table, opponentDirect})
+ })
 })
 
 /* POST handle input random player */
-router.post("/confirm", ensureAuthenticated, (req, res, next) => {
-  let opponentRandom = User.findOne({username: req.body.directOpponent})
-  console.log("debug random opponent", opponentRandom)
+router.post("/confirm/random", ensureAuthenticated, (req, res, next) => {
+  p1 = Table.find()
+  p2 = User.findOne({username: req.body.randomOpponent})
+  // // Passing entire user object to confirm page
+  // .then(opponentRandom => {
+  //   console.log("debug random opponent", opponentRandom)
+  //   res.render("match/confirm", {opponentRandom})
+  // })
+
+  Promise.all([p1, p2])
+  .then(values => {
+    let table = values[0][0]
+    let opponentRandom = values[1]
+    res.render("match/confirm", {table, opponentRandom})
+  })
  })
 
 /* POST handle match input and send confirmation e-mail */
-router.post("/confirm", ensureAuthenticated, (req, res, next) => {
+router.post("/confirm/submit", ensureAuthenticated, (req, res, next) => {
 
+  // define variables for new match
   let table = req.body.table
+  console.log("debug table", table)
   let playerOne = req.user._id
-  let playerTwo = req.body.opponent
+  console.log("debug playerOne", playerOne)
+  // let playerTwo = () => {
+  //     if (req.body.opponentDirect) {
+  //       req.body.opponentDirect
+  //     }
+  //     else {req.body.opponentRandom}
+  //   }
+  let playerTwo = req.body.opponentDirect
+  // let playerTwo = req.body.opponentRandom
+  console.log("debug playerTwo", playerTwo)
   let message = req.body.message
+  console.log("debug message", message)
 
   // create new match based on input
   let newMatch = new Match ({
     _table: table,
-    player1: playerOne,
-    player2: playerTwo,
+    _player1: playerOne,
+    _player2: playerTwo,
     message: message,
+    status: "pending",
   })
   console.log("debug newMatch", newMatch)
 
   // save new match
   newMatch.save()
+
+  // send confirmation mail to opponent
   .then(matchData => {
-    let email = User.findById(playerTwo).email
-    let opponentUsername = User.findById(playerTwo).username
-      
-      transporter.sendMail({
-       from: '" " <lab-nodemailer@project.com>',
-       to: email, 
-       subject: "Your next Ping Pong match is waiting for you", 
-       html:
-       `
-       <b>Hello ${opponentUsername}, you have been challenged!</b>
-       <p>${req.user.username} has invited you to join a Ping Pong match! Head to our site and confirm the match now :) </p>
-       `,
-     })
     
-     .then(info => 
-       res.render('/homepage')
-       )
-     .catch(error => console.log("Error sending mail", error))
-    res.redirect("/homepage")
+    User.findById(playerTwo)
+    .then(userData => {
+      let email = userData.email
+      console.log("debug user mail", email)
+      let opponentUsername = userData.username
+      console.log("debug user name", opponentUsername)
+
+      transporter.sendMail({
+        from: '"Pingpong" <message@pingpong.com>',
+        to: email, 
+        subject: "Your next Ping Pong match is waiting for you", 
+        html:
+        `
+        <b>Hello ${opponentUsername}, you have been challenged!</b>
+        <p>${req.user.username} has invited you to join a Ping Pong match! Head to our site and confirm the match now :) </p>
+        `,
+      })
+
+      .then(info => res.render('/homepage'))
+      .catch(error => console.log("Error sending mail", error))
+    })
   })
-
-  .catch(error => console.log("Error creating new match", error))
+      
 })
-
-
-
 
 module.exports = router;

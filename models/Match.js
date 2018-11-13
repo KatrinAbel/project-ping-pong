@@ -10,11 +10,14 @@ const matchSchema = new Schema({
       type: String, 
       enum: ["pending", "open", "played"]
   },
+},
+{
   timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+    createdAt: "created_at",
+    updatedAt: "updated_at"
   }
-});
+}
+);
 
 const Match = mongoose.model('Match', matchSchema);
 module.exports = Match;

@@ -1,18 +1,24 @@
-<h2>confirm</h2>
+<h2>Confirm your match</h2>
 
-<form action="/confirm" method="POST">
+<form action="/confirm/submit" method="POST">
 
 <div>
-  <p>Your playground: 
-  <input type="text" name="table" value={{tableData._id}}>
-    {{tableData.address}}</p>
+  <p>Your playground:</p>
+  <input type="text"name="table" value={{table._id}}>
+  <p>{{table.address}}</p>
 </div>
 
 <div>
-  <p>Your opponent:
-  <input type="text" name="opponent" value={{._id}}>
-   {{.username}}
-  </p>
+  <p>Your opponent:</p>
+  {{!-- if opponent direct is true display opponentdirect otherwise display opponentrandom --}}
+  {{#if opponentDirect}}
+   <input name="opponentDirect" value={{opponentDirect._id}}>
+   <p>{{opponentDirect.username}}</p>
+   {{!-- <option name="opponentDirect" value={{opponentDirect._id}}>{{opponentDirect.username}}</option> --}}
+  {{else}}
+  <input name="opponentRandom" value={{opponentRandom._id}}>
+  <p>{{opponentRandom.username}}</p>
+  {{/if}}
 </div>
 
 <div>
@@ -20,8 +26,6 @@
   <input type="textarea" name="message" placeholder="Specify time and date and send that invite asap!" size="40">
 </div>
 
-<button type="submit">
-  <a href="/homepage">It's on</a>
-</button>
+<button type="submit">It's on</button>
 
 </form>
