@@ -41,7 +41,7 @@ router.get('/match/:id', ensureAuthenticated, (req, res, next) => {
     let tableTeam = tableData.team
     
     // Defining randomUser based on selected table
-    User.find({team: tableTeam})
+    User.find({team: tableTeam, _id: {$ne: req.user._id}})
     .then(userData=> {
       let usernames = []
       for (let i = 0; i<userData.length; i++) {
@@ -131,9 +131,7 @@ router.post("/confirm", ensureAuthenticated, (req, res, next) => {
     User.findById(playerTwo)
     .then(userData => {
       let email = userData.email
-      console.log("debug user mail", email)
       let opponentUsername = userData.username
-      console.log("debug user name", opponentUsername)
 
       transporter.sendMail({
         from: '"Pingpong" <message@pingpong.com>',
@@ -146,7 +144,7 @@ router.post("/confirm", ensureAuthenticated, (req, res, next) => {
         `,
       })
 
-      .then(info => res.render('/homepage'))
+      .then(info => res.render('homepage'))
       .catch(error => console.log("Error sending mail", error))
     })
   })

@@ -10,8 +10,5 @@ router.get("/homepage", (req, res, next) => {
   res.render("homepage");
 });
 
-router.get("/open-games", (req, res, next) => {
-  res.render("../views/match/open-games.hbs");
-});
 
 module.exports = router;
