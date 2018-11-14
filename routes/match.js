@@ -113,6 +113,15 @@ router.post("/confirm", ensureAuthenticated, (req, res, next) => {
 
   let message = req.body.message
 
+  // Error message if message is empty
+  // if (message === "") {
+
+  //   res.render("match/confirm", {
+  //     message: "Please indicate message to opponent",
+  //   });
+  //   return;
+  // }
+
   // create new match based on input
   let newMatch = new Match ({
     _table: table,

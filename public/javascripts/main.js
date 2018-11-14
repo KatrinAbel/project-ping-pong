@@ -40,4 +40,19 @@ window.onload = () => {
 
   const tables = []
   console.log("debug markers", tables)
+
+// /* Filter profile overview */
+//   document.querySelector("select").onclick = function() {
+//   let filter = document.querySelector("select").value
+//     if (filter === "wework, Potsdamer Platz") {
+//      document.
+//     }
+//     if (filter === "wework, at Atrium Tower") {
+      
+//     }
+//     else {
+      
+//     }
+//   }
+
 };
