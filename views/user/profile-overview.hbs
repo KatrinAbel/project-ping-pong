@@ -3,19 +3,21 @@
 <p>Find out who's playing in your team or a team closeby!</p>
 
 <form>
-  <select name="overviewFilter">
+  <select class="overviewFilter" name="overviewFilter">
     <option></option>
-    <option>wework, Potsdamer Platz</option>
-    <option>wework, at Atrium Tower</option>
+    <option class="option1">wework, Potsdamer Platz</option>
+    <option class="option2">wework, at Atrium Tower</option>
   </select>
-  <button>apply filter</button>
+  <button type="submit" class="btn-overview">apply filter</button>
 </form>
 
 <br><br>
 
+<div class="cart">
 {{#each userData}}
-<img src="{{this.imgPath}}" alt="profilePicture">
-<p>Name: {{this.username}}</p>
-<p>Team: {{this.team}}</p>
+<img class="overview-img" src="{{this.imgPath}}" alt="profilePicture">
+<p class="overview-name">Name: {{this.username}}</p>
+<p class="overview-team">Team: {{this.team}}</p>
 <br><br>
 {{/each}}
+</div>
