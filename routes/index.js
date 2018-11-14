@@ -9,6 +9,11 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+/* GET login/signup page */
+router.get("/rules", (req, res, next) => {
+  res.render("rules");
+});
+
 /* GET homepage */
 // Pass number of pending and open games
 router.get("/homepage", (req, res, next) => {
