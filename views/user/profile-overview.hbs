@@ -1,0 +1,27 @@
+<h2>Profile Overview</h2>
+
+<p>Find out who's playing in your team or a team closeby!</p>
+
+{{!-- <form action="/profile-overview" method="POST">
+  <select name="overviewFilter">
+    <option>"wework, Potsdamer Platz"</option>
+    <option>"wework, at Atrium Tower"</option>
+  </select>
+  <input type="submit" value="apply filter">
+</form>
+
+{{#if isfilterCriteria}} --}}
+{{#each userData}}
+<img src="{{this.imgPath}}" alt="profilePicture">
+<p>Name: {{this.username}}</p>
+<p>Team: {{this.team}}</p>
+<br><br>
+{{/each}}
+{{!-- {{else}}
+{{#each userData}}
+<img src="{{this.imgPath}}" alt="profilePicture">
+<p>Name: {{this.username}}</p>
+<p>Team: {{this.team}}</p>
+<br><br>
+{{/each}}
+{{/if}} --}}
