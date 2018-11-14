@@ -1,0 +1,24 @@
+<br>
+
+<h2>High Scores</h2>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Team</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {{#each userData}}
+    <tr>
+      <td>{{this.username}}</td>
+      <td>{{this.team}}</td>
+      <td>{{this.points}}</td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>

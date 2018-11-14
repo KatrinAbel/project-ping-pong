@@ -151,6 +151,16 @@ router.post("/confirm", ensureAuthenticated, (req, res, next) => {
       
 })
 
+//highScore
+
+router.get("/highscores", (req, res, next) => {
+  User.find().sort( { points: -1 } )
+  .then(userData => {
+    console.log("usedata", userData)
+    res.render("highscores", {userData});
+  }
+  )
+});
 
 
 module.exports = router;

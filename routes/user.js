@@ -70,6 +70,7 @@ router.get("/pending-invite", ensureAuthenticated, (req, res, next) => {
   Match.find({ _player2: id, status: "pending" })
     .populate("_player1")
     .then(matchData => {
+
       res.render("match/pending-invite", { matchData });
     });
 });

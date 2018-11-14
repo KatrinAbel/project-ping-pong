@@ -31,9 +31,7 @@ router.get("/signup", (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
-  console.log("USERNAME: ", username);
   const email = req.body.email;
-  console.log("EMAIL: ", email);
   const password = req.body.password;
   const team = req.body.team;
   if (username === "" || password === "" || email === "" || team === "") {
