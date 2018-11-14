@@ -6,9 +6,6 @@ const cloudinary = require("cloudinary");
 const Table = require("../models/Table");
 const Match = require("../models/Match");
 
-//const Table = require("")
-//const Match = require("")
-
 /* Ensure logged in middleware */
 function ensureAuthenticated(req, res, next) {
   if (req.user) {
@@ -185,18 +182,27 @@ router.post(
 
 /* GET user profile overview */
 router.get("/profile-overview", ensureAuthenticated, (req, res, next) => {
-  User.find()
-  .then(userData => {
-    res.render("user/profile-overview", {userData})
-  })
+  // document.querySelector("button").onclick = function() {
+  let filter = document.querySelector("select").value
+    if (filter === "wework, Potsdamer Platz") {
+      User.find({team: "wework, Potsdamer Platz"})
+      .then(userData => {
+      res.render("user/profile-overview", {userData})
+      });
+    }
+    if (filter === "wework, at Atrium Tower") {
+      User.find({team: "wework, at Atrium Tower"})
+      .then(userData => {
+      res.render("user/profile-overview", {userData})
+      });
+    }
+    else {
+      User.find()
+      .then(userData => {
+      res.render("user/profile-overview", {userData})
+      });
+    }
+  // }
 })
-
-// router.post("/profile-overview", ensureAuthenticated, (req, res, next) => {
-//  let filter = req.body.overviewFilter
-//  if (filter !=="") {
-//    res.local.isfilterCriteria === true
-//    res.render("user/profile-overview")
-//  }
-// })
 
 module.exports = router;
