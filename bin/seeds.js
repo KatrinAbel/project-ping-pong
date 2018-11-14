@@ -6,7 +6,7 @@ const Table = require("../models/Table");
 
 mongoose
   .connect(
-    "mongodb://localhost/project-ping-pong",
+    process.env.MONGODB_URI,
     { useNewUrlParser: true }
   )
   .then(x => {
