@@ -9,7 +9,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-/* GET login/signup page */
+/* GET rules page */
 router.get("/rules", (req, res, next) => {
   res.render("rules");
 });
