@@ -1,0 +1,22 @@
+<br>
+<h1>Open games</h1>
+
+{{#each matchData}}
+<form action="/points-confirm" method="POST">
+
+{{this._player1.username}}:
+<input name="pointsPlayer1" type="number" min="0">
+<input name="idPlayer1" type="hidden" value={{this._player1._id}}>
+<br>
+
+{{this._player2.username}}:
+<input name="pointsPlayer2" type="number" min="0">
+
+<input name="matchId" type="hidden" value={{this._id}}>
+
+<br>
+  <input type="submit" value="confirm">
+</form>
+
+<br> <br>
+{{/each}}

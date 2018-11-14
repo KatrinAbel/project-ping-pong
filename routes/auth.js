@@ -31,19 +31,20 @@ router.get("/signup", (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
-  console.log("USERNAME: ", username)
+  console.log("USERNAME: ", username);
   const email = req.body.email;
-  console.log("EMAIL: ", email)
+  console.log("EMAIL: ", email);
   const password = req.body.password;
   const team = req.body.team;
   if (username === "" || password === "" || email === "" || team === "") {
     res.render("auth/signup", {
-      message: "Indicate username, team, password and e-mail"
+      message: "Indicate email, username, password and team"
     });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
+    console.log("req.body.team.enum");
     if (user !== null) {
       res.render("auth/signup", { message: "The username already exists" });
       return;
@@ -53,10 +54,10 @@ router.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
-      email,
       username,
-      team,
-      password: hashPass
+      password: hashPass,
+      email,
+      team
     });
 
     newUser
