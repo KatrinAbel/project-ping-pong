@@ -86,21 +86,18 @@ router.post(
 // POST
 // accept match if user presses the "accept match" button
 // uptates the status of the user in a specitic match
-router.post(
-  "/pending-invite/accept/:id",
-  ensureAuthenticated,
-  (req, res, next) => {
+router.post("/pending-invite/accept/:id", ensureAuthenticated, (req, res, next) => {
     let id = req.params.id;
     let update = {
       status: "open"
     };
     Match.findByIdAndUpdate(id, update)
-      .then(match => {
-        res.redirect("/homepage");
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    .then(match => {
+      res.redirect("/pending-invite")
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 );
 
