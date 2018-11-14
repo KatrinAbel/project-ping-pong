@@ -11,7 +11,6 @@ router.get("/homepage", (req, res, next) => {
   res.render("homepage");
 });
 
-<<<<<<< HEAD
 //Integrating marker data
 // for deployment where do we get the data from?
 // right now it is accesible via http://localhost:3000/api
@@ -25,7 +24,5 @@ router.get('/api', (req, res, next) => {
 	});
 });
 
-=======
->>>>>>> 53aa594d12a4a763324bf1e538418dd59d6b418e
 
 module.exports = router;
