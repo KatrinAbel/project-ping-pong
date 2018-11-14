@@ -18,17 +18,19 @@ function ensureAuthenticated(req, res, next) {
   }
 }
 
-// GET profile page
-router.get("/pending-invite", ensureAuthenticated, (req, res, next) => {
-  let id = req.user._id;
-  Match.find({ _player2: id, status: "pending" })
-    .populate("_player1")
-    .then(matchData => {
-      res.render("match/pending-invite", { matchData });
-    });
+/* GET profile page */
+router.get("/profile", ensureAuthenticated, (req, res, next) => {
+  let user = req.user;
+  res.render("user/profile", { user });
 });
 
-// Lets the user update their profile
+/* GET profile edit page */
+router.get("/profile-edit", ensureAuthenticated, (req, res, next) => {
+  let user = req.user;
+  res.render("user/profile-edit", { user });
+});
+
+/* POST handle edit page submits */
 router.post(
   "/profile-edit",
   ensureAuthenticated,
@@ -53,7 +55,7 @@ router.post(
   }
 );
 
-// Delete logged in user-profile from DB
+/* Deletes user profile */
 router.post("/profile-delete", ensureAuthenticated, (req, res, next) => {
   let id = req.user._id;
   User.findByIdAndDelete(id)
@@ -65,17 +67,25 @@ router.post("/profile-delete", ensureAuthenticated, (req, res, next) => {
     });
 });
 
-// POST
-// delete match if user presses the "decline match" button
+/* GET pending invite page */
+router.get("/pending-invite", ensureAuthenticated, (req, res, next) => {
+  let id = req.user._id;
+  Match.find({ _player2: id, status: "pending" })
+    .populate("_player1")
+    .then(matchData => {
+      res.render("match/pending-invite", { matchData });
+    });
+});
+
+/* POST declining pending matches */
 router.post(
   "/pending-invite/decline/:id",
   ensureAuthenticated,
   (req, res, next) => {
     let id = req.params.id;
-    console.log("debug id", id);
     Match.findByIdAndDelete(id)
       .then(match => {
-        res.redirect("/homepage");
+        res.redirect("/pending-invite");
       })
       .catch(error => {
         console.log(error);
@@ -83,9 +93,7 @@ router.post(
   }
 );
 
-// POST
-// accept match if user presses the "accept match" button
-// uptates the status of the user in a specitic match
+/* POST accepting pending matches and changing status of match to open */
 router.post(
   "/pending-invite/accept/:id",
   ensureAuthenticated,
@@ -96,7 +104,7 @@ router.post(
     };
     Match.findByIdAndUpdate(id, update)
       .then(match => {
-        res.redirect("/homepage");
+        res.redirect("/pending-invite");
       })
       .catch(error => {
         console.log(error);
@@ -104,16 +112,7 @@ router.post(
   }
 );
 
-router.get("/profile", ensureAuthenticated, (req, res, next) => {
-  let user = req.user;
-  res.render("user/profile", { user });
-});
-
-router.get("/profile-edit", ensureAuthenticated, (req, res, next) => {
-  let user = req.user;
-  res.render("user/profile-edit", { user });
-});
-
+/* GET open games page */
 router.get("/open-games", (req, res, next) => {
   let id = req.user._id;
 
@@ -125,44 +124,79 @@ router.get("/open-games", (req, res, next) => {
     });
 });
 
+/* POST updating points of users based on form input and changing status of game to played */
 router.post("/points-confirm", (req, res, next) => {
+
+  // Defining ids of players and match
   let idPlayer1 = req.body.idPlayer1
   let idPlayer2 = req.user._id;
   let matchId = req.body.matchId;
-  console.log("debug matchId", matchId);
 
+  // Getting new points based on form input
   let newPointsPlayer1 = req.body.pointsPlayer1;
   let newPointsPlayer2 = req.body.pointsPlayer2;
 
- /*  User.findOne({_id: idPlayer1})
-  .then(playerData1 => {
-   let currentPointsPlayer1 = playerData1.points
-   console.log("debug currentpoints", currentPointsPlayer1)
-   let updatePoints = Number(currentPointsPlayer1) + Number(newPointsPlayer1)
-   console.log("debug update points", updatePoints)
+  p1 = User.findOne({_id: idPlayer1})
+  p2 = User.findOne({_id: idPlayer2})
+
+  Promise.all([p1, p2])
+  .then(values => {
+    let playerData1 = values[0]
+    let playerData2 = values[1]
+
+    // Retrieving current points from database and adding the entered points value
+    let currentPointsPlayer1 = playerData1.points
+    let updatePointsPlayer1 = Number(currentPointsPlayer1) + Number(newPointsPlayer1)
+
+    let currentPointsPlayer2 = playerData2.points
+    let updatePointsPlayer2 = Number(currentPointsPlayer2) + Number(newPointsPlayer2)
+
+    // Updating the database with the sum of current points and new points
+    let p3 = User.findByIdAndUpdate(idPlayer1, { points: updatePointsPlayer1 });
+    let p4 = User.findByIdAndUpdate(idPlayer2, { points: updatePointsPlayer2 });
+    let p5 = Match.findByIdAndUpdate(matchId, { status: "played" });
+  
+    Promise.all([p3, p4, p5])
+      .then(values => {
+        res.redirect("/open-games");
+      })
+      .catch(err => {
+        console.log(err);
+      });
   })
-
-  User.findOne({_id: idPlayer2})
-  .then(playerData2 => {
-   let currentPointsPlayer2 = playerData2.points
-   console.log("debug currentpoints", currentPointsPlayer2)
-   let updatePoints = Number(currentPointsPlayer2) + Number(newPointsPlayer2)
-   console.log("debug update points", updatePoints)
-  }) */
-
-  let p1 = User.findByIdAndUpdate(idPlayer1, { points: newPointsPlayer1 });
-
-  let p2 = User.findByIdAndUpdate(idPlayer2, { points: newPointsPlayer2 });
-
-  let p3 = Match.findByIdAndUpdate(matchId, { status: "played" });
-
-  Promise.all([p1, p2, p3])
-    .then(values => {
-      res.redirect("/homepage");
-    })
-    .catch(err => {
-      console.log(err);
-    });
 });
+
+/* POST deleting open matches */
+router.post(
+  "/points-confirm/delete/:id",
+  ensureAuthenticated,
+  (req, res, next) => {
+    let id = req.params.id;
+    console.log("debug id", id);
+    Match.findByIdAndDelete(id)
+      .then(match => {
+        res.redirect("/open-games");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+);
+
+/* GET user profile overview */
+router.get("/profile-overview", ensureAuthenticated, (req, res, next) => {
+  User.find()
+  .then(userData => {
+    res.render("user/profile-overview", {userData})
+  })
+})
+
+// router.post("/profile-overview", ensureAuthenticated, (req, res, next) => {
+//  let filter = req.body.overviewFilter
+//  if (filter !=="") {
+//    res.local.isfilterCriteria === true
+//    res.render("user/profile-overview")
+//  }
+// })
 
 module.exports = router;
