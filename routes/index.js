@@ -12,15 +12,17 @@ router.get("/", (req, res, next) => {
 //GET homepage
 //GET numbers of pending matches 
 router.get("/homepage", (req, res, next) => {
-	res.render("homepage")
-// 	let idPlayer2 = req.user._id
-// 	Match.aggregate(
-// [
-// 	{$match: {status: "pending"}},
-// 	{$group: {_id: idPlayer2, total: {$sum: "pending"}}}
-// ]
-// 	)
-});
+	let id = req.user._id
+	let pending = 	Match.find({ _player2: id, status: "pending"})
+	let open = 	Match.find({ _player2: id, status: "open"})
+	Promise.all([pending, open])
+	.then(matchData => {
+		let pendingNumber = matchData[0].length
+		let openNumber = matchData[1].length
+		res.render("homepage", {pendingNumber,openNumber})
+	})
+})
+ 
 
 //Integrating marker data
 // for deployment where do we get the data from?

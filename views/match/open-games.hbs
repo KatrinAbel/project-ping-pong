@@ -1,22 +1,35 @@
 <br>
 <h1>Open games</h1>
 
+{{open}}
+<p>Keep track of your scores - enter the points of your matches here:</p>
+<p>If you're not sure about what to enter, check out the <a href="/rules">rules page</a></p>
+<br>
+
 {{#each matchData}}
 <form action="/points-confirm" method="POST">
 
-{{this._player1.username}}:
+<p>Points {{this._player1.username}}:</p>
 <input name="pointsPlayer1" type="number" min="0">
+{{!-- Passing the id of player1 in hidden input field  --}}
 <input name="idPlayer1" type="hidden" value={{this._player1._id}}>
-<br>
+<br>  
 
-{{this._player2.username}}:
+<p>Points {{this._player2.username}}:</p>
 <input name="pointsPlayer2" type="number" min="0">
-
+{{!-- Passing the match id in hidden input field  --}}
 <input name="matchId" type="hidden" value={{this._id}}>
+<br>
 
 <br>
-  <input type="submit" value="confirm">
+<input type="submit" value="update points">
+<br>
+
 </form>
 
-<br> <br>
+<form action="/points-confirm/delete/{{this._id}}" method="POST">
+<input type="submit" value="The match didn't take place">
+</form>
+<br><br>
+
 {{/each}}
