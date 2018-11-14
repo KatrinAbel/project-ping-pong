@@ -52,7 +52,7 @@ router.post(
   }
 );
 
-/* Deletes user profile */
+/* POST deletes user profile */
 router.post("/profile-delete", ensureAuthenticated, (req, res, next) => {
   let id = req.user._id;
   User.findByIdAndDelete(id)
@@ -69,8 +69,8 @@ router.get("/pending-invite", ensureAuthenticated, (req, res, next) => {
   let id = req.user._id;
   Match.find({ _player2: id, status: "pending" })
     .populate("_player1")
+    .populate("_table")
     .then(matchData => {
-
       res.render("match/pending-invite", { matchData });
     });
 });
@@ -184,25 +184,25 @@ router.post(
 /* GET user profile overview */
 router.get("/profile-overview", ensureAuthenticated, (req, res, next) => {
   // document.querySelector("button").onclick = function() {
-  let filter = document.querySelector("select").value
-    if (filter === "wework, Potsdamer Platz") {
-      User.find({team: "wework, Potsdamer Platz"})
-      .then(userData => {
-      res.render("user/profile-overview", {userData})
-      });
-    }
-    if (filter === "wework, at Atrium Tower") {
-      User.find({team: "wework, at Atrium Tower"})
-      .then(userData => {
-      res.render("user/profile-overview", {userData})
-      });
-    }
-    else {
+  // let filter = document.querySelector("select").value
+  //   if (filter === "wework, Potsdamer Platz") {
+  //     User.find({team: "wework, Potsdamer Platz"})
+  //     .then(userData => {
+  //     res.render("user/profile-overview", {userData})
+  //     });
+  //   }
+  //   if (filter === "wework, at Atrium Tower") {
+  //     User.find({team: "wework, at Atrium Tower"})
+  //     .then(userData => {
+  //     res.render("user/profile-overview", {userData})
+  //     });
+  //   }
+  //   else {
       User.find()
       .then(userData => {
       res.render("user/profile-overview", {userData})
       });
-    }
+    // }
   // }
 })
 

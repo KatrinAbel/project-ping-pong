@@ -151,8 +151,7 @@ router.post("/confirm", ensureAuthenticated, (req, res, next) => {
       
 })
 
-//highScore
-
+/* GET highscores */
 router.get("/highscores", (req, res, next) => {
   User.find().sort( { points: -1 } )
   .then(userData => {
