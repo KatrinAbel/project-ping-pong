@@ -13,11 +13,14 @@
 
 <br><br>
 
-<div class="cart">
-{{#each userData}}
-<img class="overview-img" src="{{this.imgPath}}" alt="profilePicture">
-<p class="overview-name">Name: {{this.username}}</p>
-<p class="overview-team">Team: {{this.team}}</p>
-<br><br>
-{{/each}}
-</div>
+
+  {{#each userData}}
+  <div class="card">
+  <img class="img" src="{{this.imgPath}}"" alt="Profile-picture">
+  <div class="card-body">
+    <p class="card-text">Name: {{this.username}}</p>
+    <p class="card-text">Level: {{this.level}}</p>
+  </div>
+  </div> 
+  {{/each}} 
+

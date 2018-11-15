@@ -11,14 +11,17 @@
   <p> Message from opponent: {{this.message}}</p>
 </div>
 
+<div class="d-flex flex-column">
 
 <form action="/pending-invite/decline/{{this._id}}" method="POST">
-  <input type="submit" value="Decline Match" class="btn">
+  <input type="submit" value="Decline Match" class="btn" id="PendingButton1">
 </form>
 
 
 <form action="/pending-invite/accept/{{this._id}}" method="POST">
-  <input type="submit" value="Accept match" id="PendingButton2">
+  <input type="submit" value="Accept match" class="btn" id="PendingButton2">
 </form>
+
+</div>
 {{/each}}
 <br><br>
