@@ -17,11 +17,11 @@
   margin-left: 10%;
   margin-right: 10%;
   padding: 5%;
-  background-color:white; 
-  opacity:0.5;
+  background-color: white;
+  opacity: 0.5;
 }
 
-#PendingDiv{
+#PendingDiv {
   background-color: white;
   padding: 5%;
   border-radius: 0px;
@@ -29,30 +29,44 @@
   margin: auto;
 }
 
-#PendingDiv p{
-    text-align: center;
+#PendingDiv p {
+  text-align: center;
 }
 
-#PendingButton1{
-    text-align: center;
-    width: 80%;
-    margin-top: 10px;
-    margin-right: 10%;
-    margin-left: 10%;
+#PendingButton1 {
+  text-align: center;
+  width: 80%;
+  margin-top: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
 }
 
-#PendingButton2{
-    text-align: center;
-    width: 80%;
-    margin-top: 10px;
-    margin-right: 10%;
-    margin-left: 10%;
-} 
+#PendingButton2 {
+  text-align: center;
+  width: 80%;
+  margin-top: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
 
-.card{
-        height: 100vh;
-        margin: 60px;
-        width: 6em auto;
+#card {
+  background-color: white;
+  width: auto;
 }
 
 
+#first {
+    width: 200px;
+    float: left;
+    height: 300px;
+        background-color: blue;
+}
+#second {
+    width: 200px;
+    float: right;
+    height: 300px;
+    background-color: white;
+}
+#clear {
+    clear: both;
+}

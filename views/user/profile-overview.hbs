@@ -14,13 +14,35 @@
 <br><br>
 
 
-  {{#each userData}}
-  <div class="card">
-  <img class="img" src="{{this.imgPath}}"" alt="Profile-picture">
+{{!-- {{#each userData}}
+<div class="card">
+  <img class="img" src="{{this.imgPath}}"" alt=" Profile-picture">
   <div class="card-body">
     <p class="card-text">Name: {{this.username}}</p>
     <p class="card-text">Level: {{this.level}}</p>
   </div>
-  </div> 
-  {{/each}} 
+</div>
+{{/each}} --}}
 
+<div class="picture-holder">
+  <img class="profile-picture" src={{user.imgPath}} alt="user-image">
+</div> 
+
+<div class="card">
+  <p class="card-text">Name: {{this.username}}</p>
+  <p class="card-text">Level: {{this.level}}</p>
+</div>
+
+{{!-- <div id="header"></div>
+<div id="container">
+{{#each userData}}
+  <div id="picture-holder">
+    <img class="profile-picture" src={{user.imgPath}} alt="user-image">
+  </div>
+  <div id="second">
+    <p class="card-text">Name: {{this.username}}</p>
+    <p class="card-text">Level: {{this.level}}</p>
+  </div>
+  <div id="clear"></div>
+{{/each}} 
+</div> --}}
