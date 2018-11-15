@@ -2,14 +2,14 @@
 
 <form action="/confirm" method="POST">
 
-<div>
-  <p>Your playground:</p>
+<div class="chosenTable">
+  <p><strong>playground:</strong></p>
   <input type="hidden"name="table" value={{tableData._id}}>
   <p>{{tableData.address}}</p>
 </div>
 
-<div>
-  <p>Your opponent:</p>
+<div class="chosenTable">
+  <p><strong>opponent:</strong></p>
   {{!-- if opponent direct is true display opponentdirect otherwise display opponentrandom --}}
   {{#if opponentDirect}}
    <input type="hidden" name="opponentDirect" value={{opponentDirect._id}}>
@@ -21,12 +21,14 @@
   {{/if}}
 </div>
 
-<div>
-  <p>Your message:</p>
-  <input type="textarea" name="message" placeholder="Specify time and date and send that invite asap!" size="40">
+<div class="chosenTable">
+  <p><strong>message:</strong></p>
+  <input class="inputConfirm" type="textarea" name="message" placeholder="Specify time and date&#10; and send that invite asap!" size="20">
 </div>
 
-<button type="submit">It's on</button>
+<div class="center d-flex justify-content-center">
+<button class="btn btn-confirm" id="buttontohover" type="submit">It's on</button>
+</div>
 
 <div>
 <br>

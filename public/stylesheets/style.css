@@ -4,9 +4,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
 
 #map {
   width: 100%;
@@ -21,6 +18,7 @@ p {
 /* Setting the button background to white
   button width: 566px, height: 268px;
 */
+
 .btn{
   background-color: white;
   border-radius: 0px;

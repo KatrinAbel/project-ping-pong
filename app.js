@@ -97,6 +97,11 @@ app.use('/', require('./routes/index'));
 
 app.use('/auth', require('./routes/auth'));
 
-      
 
+hbs.registerHelper("inc", function(value, options)
+{
+    return parseInt(value) + 1;
+});
+
+      
 module.exports = app;
