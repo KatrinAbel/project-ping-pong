@@ -184,15 +184,26 @@ h2 {
 }
 
 .pendingNumber {
+  position: absolute;
+  left: 75%;
   height: 30px;
   width: 30px;
-  background-color: salmon;
+  background-color: rgba(250,128,114,0.5);
   font-weight: bold;
   text-align: center;
-  vertical-align: center;
-  z-index: 1;
+  vertical-align: middle;
+  margin-left: 1em;
+  border-radius: 5px;
 }
 
-.hp {
-  z-index: 0;
+.btn-pending {
+  background-color: white;
+  width: 90%;
+  margin-bottom: 0.5em;
+}
+ 
+.btn-pending-delete {
+  background-color: rgba(250,128,114,0.5);
+  color: black;
+  width: 90%;
 }
