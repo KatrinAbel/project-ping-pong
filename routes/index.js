@@ -4,6 +4,15 @@ const Table = require("../models/Table")
 const Match = require("../models/Match")
 // const User = require("../model/User")
 
+/* Ensure logged in middleware */
+function ensureAuthenticated(req, res, next) {
+  if (req.user) {
+    return next();
+  } else {
+    res.redirect("/auth/login");
+  }
+}
+
 /* GET table page */
 router.get('/match', ensureAuthenticated, (req, res, next) => {
   Table.find()
