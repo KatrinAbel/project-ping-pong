@@ -16,8 +16,8 @@ const userSchema = new Schema(
     },
     level: {
       type: String,
-      enum: ["beginner", "intermediate", "pro"],
-      default: "beginner"
+      enum: ["Beginner", "Intermediate", "Pro"],
+      default: "Beginner"
     },
     location: {
       type: { type: String },
