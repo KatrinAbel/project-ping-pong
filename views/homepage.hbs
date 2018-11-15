@@ -1,14 +1,14 @@
 {{!-- <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p> --}}
+<div class="container-homepage d-flex ">
+<div class="justify-content-center flex-column" id="all-homepage-content">
+    
 
-<div class="front-page-links d-flex">
-    <div class="justify-content-center flex-row">
-
-    <div class = >
     <div>
         <a href="match"><button type="button" id="buttontohover" class="btn">Schedule match</button></a>
     </div>
-        <a href="pending-invite"><button type="button" id="buttontohover" class="btn">Match request</button></a>
+    <div>
+        <a href="pending-invite"><button type="button" id="buttontohover" class="btn buttontohover">Match request</button></a>
     </div>
     <div>
         <a href="open-games"><button type="button" id="buttontohover" class="btn">Ongoing games</button></a>
@@ -16,14 +16,22 @@
     <div>
         <a href="profile"><button type="button" id="buttontohover" class="btn">Profile</button></a>
     </div>
-    </div>
 
-    </div>
-<div>
+    
+</div>
+</div>
+
+<div"container-points d-flex" id="homepage-points">
+<div class="justify-content-center flex-column" >
+
 <br><br>
     <p name="user-score">Pending requests:{{pendingNumber}}</p>
     <p name="user-score">Number of open games: {{openNumber}}</p>
     <br>
 </div>
-    
-</body>
+</div>
+
+<div>
+    <img src="/images/table.png" class="imghomepage">
+    </div>
+</div>
