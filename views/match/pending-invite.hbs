@@ -1,24 +1,24 @@
-  <br>
-  <h1>Pending invitation</h1>
+<br>
+<h1>Pending invitation</h1>
 {{test}}
 
 <br><br>
 {{#each matchData}}
-<p>You have an invite from: {{this._player1.username}}</p>
-<p>Where: {{this._table.address}}</p>
+<div id="PendingDiv">
 
-<p> Message from opponent: {{this.message}}</p>  
-<br><br>
+  <p>You have an invite from: {{this._player1.username}}</p>
+  <p>Where: {{this._table.address}}</p>
+  <p> Message from opponent: {{this.message}}</p>
+</div>
+
 
 <form action="/pending-invite/decline/{{this._id}}" method="POST">
-<input type="submit" value="Decline Match">
+  <input type="submit" value="Decline Match" class="btn">
 </form>
+
 
 <form action="/pending-invite/accept/{{this._id}}" method="POST">
-<input type="submit" value="Accept match">
+  <input type="submit" value="Accept match" id="PendingButton2">
 </form>
-
-
+{{/each}}
 <br><br>
-  {{/each}}
-

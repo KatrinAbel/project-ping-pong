@@ -1,6 +1,6 @@
 .table {
   background-color: white;
-  border-radius: 6px;
+  border-radius: 0px;
   width: 90%;
   margin: auto;
 }
@@ -21,3 +21,32 @@
   opacity:0.5;
 }
 
+#PendingDiv{
+  background-color: white;
+  padding: 5%;
+  border-radius: 0px;
+  width: 80%;
+  margin: auto;
+}
+
+#PendingDiv p{
+    text-align: center;
+}
+
+#PendingButton1{
+    background-color: white;
+    text-align: center;
+    width: 80%;
+    margin-top: 10px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+#PendingButton2{
+    background-color: white;
+    text-align: center;
+    margin-top: 5px;
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+}

@@ -8,12 +8,11 @@ a {
   color: #00B7FF;
 }
 
-/* Making the photos in profile and profile-edit to 
-become the same size */
-#default-profile-picture{
-  height: 8%;
-  width: 8%;
-} 
+  /* #divider{
+    padding-bottom: 1px;
+    width:auto;
+    display:inline-block;
+} */
 
 #map {
   width: 100%;
@@ -25,20 +24,12 @@ p {
   margin: 0; 
 }
 
-/* Do not touch
-.front-page-links{
-  margin: 20;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-} */
-
 /* Setting the button background to white
   button width: 566px, height: 268px;
 */
 .btn{
   background-color: white;
-  width: 566px;
+  width: 90%;
   height: 58px;
 }
 
@@ -47,6 +38,52 @@ p {
   background-color:#FFF8DB;
 }
 
+#buttontohover{
+  margin: 3% auto;
+  width: 200%;
+}
+
+/* centers text in buttons at homepage
+have margin left */
+/* .container-homepage{
+  margin: 3% auto;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5% 
+} */
+
+#all-homepage-content{
+  margin-left: 7%;
+}
+
+#homepage-points{
+  align-items: center;
+}
+
+#picture-holder{
+  stroke: black;
+  height: 50px;
+  width: 50px;
+}
+/* Making the photos in profile and profile-edit to 
+become the same size */
+#default-profile-picture{
+  height: 30%;
+  width: 20%;
+} 
+
+.imghomepage{
+  display: flex;
+  justify-content: center;
+}
+
+.profile-page{
+  display: flex;
+  background-color: white;
+  height: 95%;
+  width: 95%;
+  justify-content: center;
+}
 
 
 
