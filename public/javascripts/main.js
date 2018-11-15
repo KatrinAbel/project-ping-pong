@@ -12,7 +12,7 @@ window.onload = () => {
   getPlaces()
   
   function getPlaces() {
-    axios.get("http://localhost:3000/api")
+    axios.get("https://ironhack-pingpong.herokuapp.com/api")
      .then(tableData => {
        placeMarkers(tableData.data.tables);
      })
