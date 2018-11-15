@@ -5,13 +5,6 @@ body {
 }
 
 
-/* Making the photos in profile and profile-edit to 
-become the same size */
-#default-profile-picture{
-  height: 8%;
-  width: 8%;
-} 
-
 #map {
   width: 100%;
   height: 400px;
@@ -22,20 +15,22 @@ p {
   margin: 0; 
 }
 
-/* Do not touch
-.front-page-links{
-  margin: 20;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-} */
-
 /* Setting the button background to white
   button width: 566px, height: 268px;
 */
 
 .btn{
   background-color: white;
+<<<<<<< HEAD
+=======
+  border-radius: 0px;
+}
+
+.btn-hp{
+  width: 300px;
+  height: 58px;
+  margin: 0.5em 0.5em;
+>>>>>>> a991483e7af7a8545d294f4f2a0dd47ecef38898
 }
 
 
@@ -45,6 +40,30 @@ p {
   background-color:#FFF8DB;
 }
 
+#picture-holder{
+  stroke: black;
+  height: 50px;
+  width: 50px;
+}
+/* Making the photos in profile and profile-edit to 
+become the same size */
+#default-profile-picture{
+  height: 30%;
+  width: 20%;
+} 
+
+.imghomepage{
+  display: flex;
+  justify-content: center;
+}
+
+.profile-page{
+  display: flex;
+  background-color: white;
+  height: 95%;
+  width: 95%;
+  justify-content: center;
+}
 
 
 

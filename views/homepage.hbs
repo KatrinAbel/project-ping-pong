@@ -1,29 +1,33 @@
 {{!-- <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p> --}}
-
-<div class="front-page-links d-flex">
-    <div class="justify-content-center flex-row">
-
-    <div class = >
+<div class="d-flex justify-content-center flex-wrap">
+    
     <div>
-        <a href="match"><button type="button" id="buttontohover" class="btn">Schedule match</button></a>
-    </div>
-        <a href="pending-invite"><button type="button" id="buttontohover" class="btn">Match request</button></a>
+        <a href="match"><button type="button" id="buttontohover" class="btn btn-hp">Schedule match</button></a>
     </div>
     <div>
-        <a href="open-games"><button type="button" id="buttontohover" class="btn">Ongoing games</button></a>
+        <a href="pending-invite"><button type="button" id="buttontohover" class="btn btn-hp">Match request</button></a>
     </div>
     <div>
-        <a href="profile"><button type="button" id="buttontohover" class="btn">Profile</button></a>
+        <a href="open-games"><button type="button" id="buttontohover" class="btn btn-hp">Ongoing games</button></a>
     </div>
+    <div>
+        <a href="profile"><button type="button" id="buttontohover" class="btn btn-hp">Profile</button></a>
     </div>
+    
+</div>
 
-    </div>
-<div>
+<div"container-points d-flex">
+<div class="justify-content-center flex-column align-items-center" >
+
 <br><br>
     <p name="user-score">Pending requests:{{pendingNumber}}</p>
     <p name="user-score">Number of open games: {{openNumber}}</p>
     <br>
 </div>
-    
-</body>
+</div>
+
+<div>
+    <img src="/images/table.png" class="imghomepage">
+    </div>
+</div>
