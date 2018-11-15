@@ -7,11 +7,15 @@ Welcome {{user.username}}
     <div>
         <a href="match"><button type="button" id="buttontohover" class="btn btn-hp">Schedule match</button></a>
     </div>
-    <div>
+
+    <div class="d-flex align-items-center">
         <a href="pending-invite"><button type="button" id="buttontohover" class="btn btn-hp">Match request</button></a>
+        <div class="pendingNumber">{{pendingNumber}}</div>
     </div>
-    <div>
+
+    <div class="d-flex align-items-center">
         <a href="open-games"><button type="button" id="buttontohover" class="btn btn-hp">Ongoing games</button></a>
+        <div class="pendingNumber">{{openNumber}}</div>
     </div>
     <div>
         <a href="profile"><button type="button" id="buttontohover" class="btn btn-hp">Profile</button></a>
@@ -19,11 +23,13 @@ Welcome {{user.username}}
     
 </div>
 
-<div class="gamestatus d-flex flex-column justify-content-center">
+{{!-- <div class="gamestatus d-flex flex-column justify-content-center">
     <p name="user-score" class="pending-req">Pending requests:{{pendingNumber}}</p>
     <p name="user-score" class="nbof-open-games">Number of open games: {{openNumber}}</p>
     <br>
-</div>
+</div> --}}
+
+<br>
 
 <div class="d-flex justify-content-center">
     <img src="/images/table.png" class="imghomepage">

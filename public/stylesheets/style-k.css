@@ -183,6 +183,16 @@ h2 {
   margin: 0.5em;
 }
 
-.gamestatus {
-  margin: 0 auto;
+.pendingNumber {
+  height: 30px;
+  width: 30px;
+  background-color: salmon;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: center;
+  z-index: 1;
+}
+
+.hp {
+  z-index: 0;
 }
