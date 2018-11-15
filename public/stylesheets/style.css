@@ -4,9 +4,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
 
 /* Making the photos in profile and profile-edit to 
 become the same size */
@@ -36,11 +33,12 @@ p {
 /* Setting the button background to white
   button width: 566px, height: 268px;
 */
+
 .btn{
   background-color: white;
-  width: 566px;
-  height: 58px;
 }
+
+
 
 /* Sets the hoover color */
 #buttontohover:hover{

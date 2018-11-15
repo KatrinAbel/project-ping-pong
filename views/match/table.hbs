@@ -2,12 +2,13 @@
 
 <div id="map"></div>
 
+<div class="d-flex flex-column">
+
 {{#each tableData}}
-<p>Address: {{this.address}} </p>
-<p>Team: {{this.team}}</p>
-<button>
-  <a href="/match/{{this._id}}">Select</a>
+<button class="btn btn-table" id="buttontohover">
+  <a class="table-link" href="/match/{{this._id}}">{{this.address}}</a>
 </button>
-<br><br>
 {{/each}}
+
+</div>
 
