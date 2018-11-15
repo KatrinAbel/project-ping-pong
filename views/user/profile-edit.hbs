@@ -9,6 +9,7 @@
 <div class="profile-information">
 <div class="d-flex justify-content-center flex-wrap">
   <div class="justtotry">
+
 <form action="/profile-edit" method="POST" enctype="multipart/form-data">
   <input type="file" name="photo" value={{user.imgPath}}>
   <br>
@@ -34,15 +35,13 @@
   <br>
   <br>
   <br>  
+<input type="submit" value="Save changes" class="btn btn-hp" id="profile-edit-save-btn">
 </form>
 </div>
 </div>
 </div>
 
 
-<div class="btn btn-hp" id="profile-edit-save-btn">
-<input type="submit" value="Save changes" class="btn">
-</div>
 
 
 <div class="btn btn-hp" id="profile-delete-btn">

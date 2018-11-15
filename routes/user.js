@@ -39,6 +39,7 @@ router.post(
       team: req.body.team,
       level: req.body.level
     };
+    console.log(update)
     if (req.file && req.file.url) {
       update.imgPath = req.file.url;
     }

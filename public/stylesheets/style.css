@@ -131,10 +131,10 @@ become the same size */
   color: black;
   width: 100%;
   margin: 0.5em auto;
+  border-radius: 0px;
+
 }
 
-.team-dropdown{
-}
 
 
 
