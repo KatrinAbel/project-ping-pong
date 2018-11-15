@@ -94,3 +94,32 @@ h2 {
   width: 90%;
   margin: 0 auto; 
 }
+
+.btn-signup {
+  background-color: white;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.signupfields {
+  text-align: right;
+}
+
+.signup-container {
+  margin: 1em;
+}
+
+.signup-link {
+  color: black;
+  text-decoration: underline;
+}
+
+.account-message {
+  margin-top: 1em;
+}
+
+.btn-login {
+  background-color: white;
+  width: 90%;
+  margin: 0 auto;
+}
