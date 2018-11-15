@@ -1,22 +1,24 @@
 <h2>Signup</h2>
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="email">Email</label>
-  <input id="email" type="text" name="email" placeholder="Your email">
+<form class="signupform" action="/auth/signup" method="POST" id="form-container">
 
-  <br><br>
+<div class="signup-container d-flex justify-content-center">
+<div class="signupfields">
+
+  <label for="email">Email</label>
+  <input id="email" type="text" name="email" placeholder="Your email" size="22">
+
+  <br>
 
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Your name">
+  <input id="username" type="text" name="username" placeholder="Your name" size="22">
+  
   <br>
-
-  <br><br>
 
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <input id="password" type="password" name="password" placeholder="Your password" size="22">
+  
   <br>
-
-  <br><br>
 
   <label for="team">Team</label>
   <select name="team">
@@ -24,18 +26,22 @@
     <option name="wework-Potsdamer-Platz">wework, Potsdamer Platz</option>
     <option name="wework-atAtrium-Tower">wework, at Atrium Tower</option>
   </select>
+  
   <br>
 
+</div>
+</div>
+
   {{#if message }}
-  <div class="error-message">{{ message }}</div>
+  <div class="error-message d-flex justify-content-center">{{ message }}</div>
   {{/if}}
 
-  <br><br>
 
-  <button>Create account</button>
+  <button class="btn btn-signup d-flex justify-content-center" id="buttontohover">Create account</button>
 
-  <p class="account-message">
+  <p class="account-message d-flex justify-content-center">
     Do you already have an account?
-    <a href="/auth/login">Login</a>
+    <a class="signup-link" href="/auth/login"> Login</a>
   </p>
+
 </form>

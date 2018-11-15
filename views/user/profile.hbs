@@ -1,28 +1,30 @@
-<br>
-<h1>Profile page</h1>
+{{!-- <br>
+<h1>Profile page</h1> --}}
 
-<div class="profile-page">
+<div class="profile-un">
+    <p name="username" id="profile-un"><strong>{{user.username}} </strong></p>
+  </div>
+
 <div id="picture-holder">
-  <img src={{user.imgPath}} id="default-profile-picture" alt="user-image">
+  <img class="profile-picture" src={{user.imgPath}} alt="user-image">
 </div><br>
 
-<div>
-<label>Username:</label><p name="username"> {{user.username}} </p>
-<br>
+<div class="profile-info">
 
-<label>Team:</label><p name="team"> {{user.team}} </p>
-<br>
+    <pclass="profile-head">Username:</p>
+    <p name="username" class="profile line-height"><strong>{{user.username}}</strong></p>
+  
+    <p class="profile-head">Team:</p>
+    <p name="team" class="profile line-height"><strong>{{user.team}}</strong></p>
+ 
+    <p class="profile-head">Your level:</p>
+    <p name="level" class="profile line-height"><strong>{{user.level}}</strong></p>
 
-<label>Level:</label><p name="level"> {{user.level}} </p>
-<br>
-
-<label>Points:</label><p name="level"> {{user.points}} </p>
-<br>
+    <p class="profile-head">Your points:</p>
+    <p name="points" class="profile line-height"><strong>{{user.points}}</strong></p>
 
 </div>
-
-<form action="/profile-edit">
-  <input type="submit" value="Edit profile">
+ <hr class="line-player">
+<form class="d-flex justify-content-center" action="/profile-edit">
+  <input class="btn btn-edit" id="buttontohover" type="submit" value="Edit profile" class="btn">
 </form>
-
-</div>
