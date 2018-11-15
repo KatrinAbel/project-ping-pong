@@ -1,18 +1,29 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+{{!-- <h1>{{title}}</h1>
+<p>Welcome to {{title}}</p> --}}
 
+<div class="front-page-links d-flex">
+    <div class="justify-content-center flex-row">
+
+    <div class = >
+    <div>
+        <a href="match"><button type="button" id="buttontohover" class="btn">Schedule match</button></a>
+    </div>
+        <a href="pending-invite"><button type="button" id="buttontohover" class="btn">Match request</button></a>
+    </div>
+    <div>
+        <a href="open-games"><button type="button" id="buttontohover" class="btn">Ongoing games</button></a>
+    </div>
+    <div>
+        <a href="profile"><button type="button" id="buttontohover" class="btn">Profile</button></a>
+    </div>
+    </div>
+
+    </div>
 <div>
-    <br>
+<br><br>
     <p name="user-score">Pending requests:{{pendingNumber}}</p>
     <p name="user-score">Number of open games: {{openNumber}}</p>
     <br>
 </div>
-
-<div class="container">
-    <button><a href="/match">Find a match</a></button>
-    <button><a href="/pending-invite">Pending request</a></button>
-    <button><a href="/open-games">Open games</a></button>
-    <button><a href="/profile">Profile</a></button>
-</div>
-
-
+    
+</body>

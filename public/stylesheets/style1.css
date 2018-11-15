@@ -1,17 +1,23 @@
-.container{
-    display: flex;
-    justify-content: center;
+.table {
+  background-color: white;
+  border-radius: 6px;
+  width: 90%;
+  margin: auto;
 }
 
-div {
-    background-color: white;
-    width: 1000px;
-    border: 5px solid lightblue;
-    padding: 25px;
-    margin: 25px;
+.table th {
+  text-align: center;
 }
 
-.container button a{
-    text-decoration: none;
-    color: black;
+.table td {
+  text-align: center;
 }
+
+#rules {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 5%;
+  background-color:white; 
+  opacity:0.5;
+}
+

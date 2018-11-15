@@ -41,18 +41,20 @@ window.onload = () => {
   const tables = []
   console.log("debug markers", tables)
 
-// /* Filter profile overview */
-//   document.querySelector("select").onclick = function() {
-//   let filter = document.querySelector("select").value
-//     if (filter === "wework, Potsdamer Platz") {
-//      document.
-//     }
-//     if (filter === "wework, at Atrium Tower") {
-      
-//     }
-//     else {
-      
-//     }
-//   }
+/* Filter profile overview */
 
 };
+
+
+// $(".btn-overview").click(function(e){
+//   e.preventDefault()
+//   let filter = $(".overviewFilter").val()
+//   let option1 = $(".option1").val()
+//   let option2 = $(".option2").val()
+//   if(filter === option1) {
+//     console.log("I am here")
+//   }
+//   if(filter === option2) {
+//     console.log("fuck jquery")
+//   }
+// });

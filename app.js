@@ -12,10 +12,11 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
-    
+
+// This is a comment to force github to do a push
 
 mongoose
-  .connect('mongodb://localhost/project-ping-pong', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -96,6 +97,11 @@ app.use('/', require('./routes/index'));
 
 app.use('/auth', require('./routes/auth'));
 
-      
 
+hbs.registerHelper("inc", function(value, options)
+{
+    return parseInt(value) + 1;
+});
+
+      
 module.exports = app;
