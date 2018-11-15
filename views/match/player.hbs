@@ -1,17 +1,17 @@
-<div class ="chosenTable">
+<div class ="textboxLayer">
   <p><strong>Your playground: </strong><br>
     {{tableData.address}}</p>
 </div>
+<br>
 
 <h2>Now choose your opponent:</h2>
 
 <div class ="textboxOpponent" >
+  <hr class="line-player">
 
   <p><strong>I know who I want to play:</strong></p>
-  <hr class="line-player">
-  <p>Just type in the username of your frenemy and let the game begin:</p>
   <form class="formPlayer" action="/match/{{tableData._id}}/direct" method="POST">
-  <input class="inputPlayer" type="text" name="directOpponent" placeholder="Put in username of your opponent">
+  <input class="inputPlayer" type="text" name="directOpponent" placeholder="Just type in the username">
   <button class="btn btn-player" id="buttontohover" type="submit">Select opponent</button>
   </form>
 
@@ -22,8 +22,7 @@
 <div class = "textboxOpponent" >
 
   <p><strong>Are you up for a new challenge?</strong></p>
-  <hr class="line-player">
-  <p>We have chosen a random opponent for your next game for you:</p>
+  <p>We have new match for you:</p>
   <form class="formPlayer" action="/match/{{tableData._id}}/random" method="POST">
   <input  class="inputPlayer" type="hidden" name="randomOpponent" value={{randomName}}>
   <p><strong>{{randomName}}</strong></p>
