@@ -1,12 +1,15 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #C6D9C5;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
 
+/* Making the photos in profile and profile-edit to 
+become the same size */
 #default-profile-picture{
   height: 8%;
   width: 8%;
@@ -17,8 +20,36 @@ a {
   height: 400px;
 }
 
+/* This was here as default */
 p {
   margin: 0; 
 }
+
+/* Do not touch
+.front-page-links{
+  margin: 20;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+} */
+
+/* Setting the button background to white
+  button width: 566px, height: 268px;
+*/
+.btn{
+  background-color: white;
+  width: 566px;
+  height: 58px;
+}
+
+/* Sets the hoover color */
+#buttontohover:hover{
+  background-color:#FFF8DB;
+}
+
+
+
+
+
 
 
