@@ -30,6 +30,13 @@ p {
   margin: 0.5em 0.5em;
 }
 
+.pending-req{
+  width: 300px;
+}
+
+.nbof-open-games{
+  width: 300px;
+}
 
 
 /* Sets the hoover color */
@@ -37,10 +44,31 @@ p {
   background-color:#FFF8DB;
 }
 
+.profile-un{
+  margin-top: 30px;
+}
+
+#profile-un{
+  font-size: 25px;;
+  text-align: center;
+  vertical-align: middle;
+}
+
 #picture-holder{
-  stroke: black;
-  height: 50px;
-  width: 50px;
+  height: 180px;
+  width: 180px;
+  margin-top: 5%;
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.profile-picture{
+  width: auto;
+  height: 100%;
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 /* Making the photos in profile and profile-edit to 
 become the same size */
@@ -49,20 +77,64 @@ become the same size */
   width: 20%;
 } 
 
+.profile{
+  width: 300px; 
+}
+
 .imghomepage{
   display: flex;
   justify-content: center;
 }
 
-.profile-page{
-  display: flex;
+.profile-information{
   background-color: white;
-  height: 95%;
-  width: 95%;
-  justify-content: center;
+  height: 90%;
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.5);
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center */
+} 
+  
+.profile-edit-btn-placeholder{
+  margin-top: 5%;
 }
 
+.profile-edit-btn{
+  text-align: center;
+  vertical-align: middle;
+}
 
+.profile-headers{
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#profile{
+  font-size: 15px;
+}
+
+.justtotry{
+  text-align: center;
+}
+
+#profile-edit-save-btn{
+  margin-top: 5%;
+}
+
+#profile-delete-btn{
+  margin-top: 5%;
+  background-color: rgba(250,128,114,0.5);
+  color: black;
+  width: 100%;
+  margin: 0.5em auto;
+}
+
+.team-dropdown{
+}
 
 
 
