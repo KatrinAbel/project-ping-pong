@@ -2,42 +2,29 @@
 <h1>Profile page</h1> --}}
 
 <div class="profile-un">
-    <p name="username" id="profile-un"> {{user.username}} </p>
+    <p name="username" id="profile-un"><strong>{{user.username}} </strong></p>
   </div>
 
 <div id="picture-holder">
   <img class="profile-picture" src={{user.imgPath}} alt="user-image">
 </div><br>
 
-<div class="profile-information">
-<div class="d-flex justify-content-center flex-wrap">
-  <div class="justtotry">
-  {{!-- <div class="d-flex justify-content-center flex-wrap"> --}}
-    <div>
-    <label class="profile-headers">Username: </label>
-    <p name="username" id="profile"> {{user.username}} </p>
-    </div>
-    <div>
-    <label class="profile-headers">Team:</label>
-    <p name="team" id="profile"> {{user.team}} </p>
-    </div>
-    <div>
-    <label class="profile-headers">Yourlevel:</label>
-    <p name="level" id="profile"> {{user.level}} </p>
-    </div>
-    <div>
-    <label class="profile-headers">Your points:</label>
-    <p name="points" id="profile"> {{user.points}} </p>
-    </div>
-  {{!-- </div> --}}
-</div>
-</div>
-</div>
+<div class="profile-info">
 
-<div class="profile-edit-btn-placeholder" id="buttontohover">
-<div class="profile-edit-btn"  >
-<form action="/profile-edit" >
-  <input type="submit" value="Edit profile" class="btn">
+    <pclass="profile-head">Username:</p>
+    <p name="username" class="profile line-height"><strong>{{user.username}}</strong></p>
+  
+    <p class="profile-head">Team:</p>
+    <p name="team" class="profile line-height"><strong>{{user.team}}</strong></p>
+ 
+    <p class="profile-head">Your level:</p>
+    <p name="level" class="profile line-height"><strong>{{user.level}}</strong></p>
+
+    <p class="profile-head">Your points:</p>
+    <p name="points" class="profile line-height"><strong>{{user.points}}</strong></p>
+
+</div>
+ <hr class="line-player">
+<form class="d-flex justify-content-center" action="/profile-edit">
+  <input class="btn btn-edit" id="buttontohover" type="submit" value="Edit profile" class="btn">
 </form>
-</div>
-</div>

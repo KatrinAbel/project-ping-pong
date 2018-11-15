@@ -128,7 +128,8 @@ h2 {
 .error-message {
   width: 90%;
   background-color: salmon;
-  color: white;
+  text-align: center;
+  color: black;
   font-weight: bolder;
   margin: 0 auto;
   padding: 5px;
@@ -154,4 +155,34 @@ h2 {
 
 .openpoints {
   text-align: right;
+}
+
+.btn-edit {
+  background-color: white;
+  width: 90%;
+}
+
+.profile {
+  padding: 0;
+  text-align: center;
+}
+
+.profile-info {
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.5);
+  text-align: center;
+  font-size: 1em;
+}
+
+.line-height {
+  margin-bottom: 0.3em;
+}
+
+.loggedin {
+  margin: 0.5em;
+}
+
+.gamestatus {
+  margin: 0 auto;
 }
