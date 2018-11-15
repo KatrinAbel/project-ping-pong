@@ -77,16 +77,16 @@ become the same size */
   width: 20%;
 } 
 
-.profile{
+/* .profile{
   width: 300px; 
-}
+} */
 
 .imghomepage{
   display: flex;
   justify-content: center;
 }
 
-.profile-information{
+/* .profile-information{
   background-color: white;
   height: 90%;
   width: 90%;
@@ -96,13 +96,13 @@ become the same size */
   /* display: flex;
   align-items: center;
   justify-content: center */
-} 
+}  */
   
 .profile-edit-btn-placeholder{
   margin-top: 5%;
 }
 
-.profile-edit-btn{
+/* .profile-edit-btn{
   text-align: center;
   vertical-align: middle;
 }
@@ -119,7 +119,7 @@ become the same size */
 
 .justtotry{
   text-align: center;
-}
+} */
 
 #profile-edit-save-btn{
   margin-top: 5%;
