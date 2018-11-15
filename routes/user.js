@@ -112,7 +112,7 @@ router.post(
 );
 
 /* GET open games page */
-router.get("/open-games", (req, res, next) => {
+router.get("/open-games", ensureAuthenticated, (req, res, next) => {
   let id = req.user._id;
 
   Match.find({$or: [{ _player2: id, status: "open" }, { _player1: id, status: "open" }]})
@@ -124,7 +124,7 @@ router.get("/open-games", (req, res, next) => {
 });
 
 /* POST updating points of users based on form input and changing status of game to played */
-router.post("/points-confirm", (req, res, next) => {
+router.post("/points-confirm", ensureAuthenticated, (req, res, next) => {
 
   // Defining ids of players and match
   let idPlayer1 = req.body.idPlayer1
