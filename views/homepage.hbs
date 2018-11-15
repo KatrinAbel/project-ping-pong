@@ -1,5 +1,23 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+{{!-- <h1>{{title}}</h1>
+<p>Welcome to {{title}}</p> --}}
+
+<div class="front-page-links">
+
+    <div class="schedule-match-button">
+        <button class="homepage-buttons"><a href="/match">Schedule match</a></button>
+    </div>
+    <div class="pending-invite-button">
+        
+        {{!-- <button class="homepage-buttons"><a href="/pending-invite">Match requests</a></button> --}}
+    </div>  
+    <div class="open-game-button">
+        <button class="homepage-buttons"><a href="/open-games">Ongoing matches</a></button>
+    </div>
+    <div class="profile-button">
+        <button class="homepage-buttons"><a href="/profile">Profile</a></button>
+    </div>
+</div>
+
 
 <div>
     <br>
@@ -7,12 +25,15 @@
     <p name="user-score">Number of open games: {{openNumber}}</p>
     <br>
 </div>
+    
+</body>
 
-<div class="container">
-    <button><a href="/match">Find a match</a></button>
-    <button><a href="/pending-invite">Pending request</a></button>
-    <button><a href="/open-games">Open games</a></button>
-    <button><a href="/profile">Profile</a></button>
+<div class="myBox">
+  blah blah blah.
+  <a href="http://google.com">link</a>
 </div>
 
+
+<button type="button" class="btn"><a href="/pending-invite" class="heihei">Pending invites</a></button>
+<button type="button" class="btn"><a href="/pending-invite">Pending invites</a></button>
 
