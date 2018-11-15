@@ -7,8 +7,13 @@
 <br>
 
 
+<div class="d-flex flex-column">
+
 {{#each tableData}}
-<button id="Atrium"><a href="/match/{{this._id}}">{{this.address}}</a></button>
+<button class="btn btn-table" id="buttontohover">
+  <a class="table-link" href="/match/{{this._id}}">{{this.address}}</a>
+</button>
 {{/each}}
 
+</div>
 

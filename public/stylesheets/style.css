@@ -4,15 +4,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
-  /* #divider{
-    padding-bottom: 1px;
-    width:auto;
-    display:inline-block;
-} */
 
 #map {
   width: 100%;
@@ -27,37 +18,23 @@ p {
 /* Setting the button background to white
   button width: 566px, height: 268px;
 */
+
 .btn{
   background-color: white;
-  width: 90%;
-  height: 58px;
+  border-radius: 0px;
 }
+
+.btn-hp{
+  width: 300px;
+  height: 58px;
+  margin: 0.5em 0.5em;
+}
+
+
 
 /* Sets the hoover color */
 #buttontohover:hover{
   background-color:#FFF8DB;
-}
-
-#buttontohover{
-  margin: 3% auto;
-  width: 200%;
-}
-
-/* centers text in buttons at homepage
-have margin left */
-/* .container-homepage{
-  margin: 3% auto;
-  text-align: center;
-  margin-left: 5%;
-  margin-right: 5% 
-} */
-
-#all-homepage-content{
-  margin-left: 7%;
-}
-
-#homepage-points{
-  align-items: center;
 }
 
 #picture-holder{
