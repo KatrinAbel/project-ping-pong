@@ -1,32 +1,43 @@
 {{!-- <br>
 <h1>Profile page</h1> --}}
 
+<div class="profile-un">
+    <p name="username" id="profile-un"> {{user.username}} </p>
+  </div>
+
 <div id="picture-holder">
   <img class="profile-picture" src={{user.imgPath}} alt="user-image">
 </div><br>
 
- <div class="profile-un">
-    <p name="username" id="profile-un"> {{user.username}} </p>
-  </div>
-
-
 <div class="profile-information">
-  <div class="d-flex justify-content-center flex-wrap">
+<div class="d-flex justify-content-center flex-wrap">
+  <div class="justtotry">
+  {{!-- <div class="d-flex justify-content-center flex-wrap"> --}}
     <div>
-    <label>Your username: </label><p name="username" id="profile"> {{user.username}} </p>
+    <label class="profile-headers">Username: </label>
+    <p name="username" id="profile"> {{user.username}} </p>
     </div>
     <div>
-    <label>Your team:</label><p name="team" id="profile"> {{user.team}} </p>
+    <label class="profile-headers">Team:</label>
+    <p name="team" id="profile"> {{user.team}} </p>
     </div>
     <div>
-    <label>You are at level:</label><p name="level" id="profile"> {{user.level}} </p>
+    <label class="profile-headers">Yourlevel:</label>
+    <p name="level" id="profile"> {{user.level}} </p>
     </div>
     <div>
-    <label>Your points:</label><p name="level" id="profile"> {{user.points}} </p>
+    <label class="profile-headers">Your points:</label>
+    <p name="points" id="profile"> {{user.points}} </p>
     </div>
-  </div>
+  {{!-- </div> --}}
+</div>
+</div>
 </div>
 
-<form action="/profile-edit">
-  <input type="submit" value="Edit profile">
+<div class="profile-edit-btn-placeholder" id="buttontohover">
+<div class="profile-edit-btn"  >
+<form action="/profile-edit" >
+  <input type="submit" value="Edit profile" class="btn">
 </form>
+</div>
+</div>

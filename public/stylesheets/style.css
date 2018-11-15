@@ -47,20 +47,19 @@ p {
 }
 
 .profile-un{
-  border-style: solid;
+  margin-top: 30px;
 }
 
 #profile-un{
-  border-style: solid;
-  margin-left: auto;
-	margin-right: auto;
+  font-size: 25px;;
+  text-align: center;
+  vertical-align: middle;
 }
 
 #picture-holder{
-  border-style: solid;
   height: 180px;
   width: 180px;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: auto;
 	margin-right: auto;
 	display: block;
@@ -90,14 +89,54 @@ become the same size */
 }
 
 .profile-information{
-  display: flex;
   background-color: white;
-  height: 95%;
-  width: 95%;
-  justify-content: center;
+  height: 90%;
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.5);
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center */
+} 
+  
+.profile-edit-btn-placeholder{
+  margin-top: 5%;
 }
 
+.profile-edit-btn{
+  text-align: center;
+  vertical-align: middle;
+}
 
+.profile-headers{
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#profile{
+  font-size: 15px;
+}
+
+.justtotry{
+  text-align: center;
+}
+
+#profile-edit-save-btn{
+  margin-top: 5%;
+}
+
+#profile-delete-btn{
+  margin-top: 5%;
+  background-color: rgba(250,128,114,0.5);
+  color: black;
+  width: 100%;
+  margin: 0.5em auto;
+}
+
+.team-dropdown{
+}
 
 
 

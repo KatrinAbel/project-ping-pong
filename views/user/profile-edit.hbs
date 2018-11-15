@@ -1,13 +1,14 @@
-<br>
-<h1>Edit profile</h1>
+<div class="profile-un">
+    <p name="username" id="profile-un"> {{user.username}} </p>
+  </div>
 
 <div id="picture-holder">
-  <img src={{user.imgPath}} id="default-profile-picture" alt="user-image">
+  <img class="profile-picture" src={{user.imgPath}} alt="user-image">
 </div><br>
 
-<br>
-<br>
-
+<div class="profile-information">
+<div class="d-flex justify-content-center flex-wrap">
+  <div class="justtotry">
 <form action="/profile-edit" method="POST" enctype="multipart/form-data">
   <input type="file" name="photo" value={{user.imgPath}}>
   <br>
@@ -31,12 +32,21 @@
   </select>
   <br>
   <br>
-
-<input type="submit" value="Save changes">
   <br>
   <br>  
 </form>
+</div>
+</div>
+</div>
 
+
+<div class="btn">
+<input type="submit" value="Save changes" class="btn">
+</div>
+
+
+<div class="btn" id="profile-delete-btn">
 <form action="/profile-delete" method="POST" enctype="multipart/form-data">
-<input type="submit" value="Delete profile">
+<input type="submit" value="Delete profile" >
+</div>
 </form>
