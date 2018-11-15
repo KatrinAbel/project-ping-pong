@@ -32,15 +32,46 @@ p {
   margin: 0.5em 0.5em;
 }
 
+.pending-req{
+  width: 300px;
+}
+
+.nbof-open-games{
+  width: 300px;
+}
+
+
 /* Sets the hoover color */
 #buttontohover:hover{
   background-color:#FFF8DB;
 }
 
+.profile-un{
+  border-style: solid;
+}
+
+#profile-un{
+  border-style: solid;
+  margin-left: auto;
+	margin-right: auto;
+}
+
 #picture-holder{
-  stroke: black;
-  height: 50px;
-  width: 50px;
+  border-style: solid;
+  height: 180px;
+  width: 180px;
+  margin-top: 10%;
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.profile-picture{
+  width: auto;
+  height: 100%;
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 /* Making the photos in profile and profile-edit to 
 become the same size */
@@ -49,12 +80,16 @@ become the same size */
   width: 20%;
 } 
 
+.profile{
+  width: 300px; 
+}
+
 .imghomepage{
   display: flex;
   justify-content: center;
 }
 
-.profile-page{
+.profile-information{
   display: flex;
   background-color: white;
   height: 95%;

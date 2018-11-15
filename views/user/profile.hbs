@@ -1,28 +1,32 @@
-<br>
-<h1>Profile page</h1>
+{{!-- <br>
+<h1>Profile page</h1> --}}
 
-<div class="profile-page">
 <div id="picture-holder">
-  <img src={{user.imgPath}} id="default-profile-picture" alt="user-image">
+  <img class="profile-picture" src={{user.imgPath}} alt="user-image">
 </div><br>
 
-<div>
-<label>Username:</label><p name="username"> {{user.username}} </p>
-<br>
+ <div class="profile-un">
+    <p name="username" id="profile-un"> {{user.username}} </p>
+  </div>
 
-<label>Team:</label><p name="team"> {{user.team}} </p>
-<br>
 
-<label>Level:</label><p name="level"> {{user.level}} </p>
-<br>
-
-<label>Points:</label><p name="level"> {{user.points}} </p>
-<br>
-
+<div class="profile-information">
+  <div class="d-flex justify-content-center flex-wrap">
+    <div>
+    <label>Your username: </label><p name="username" id="profile"> {{user.username}} </p>
+    </div>
+    <div>
+    <label>Your team:</label><p name="team" id="profile"> {{user.team}} </p>
+    </div>
+    <div>
+    <label>You are at level:</label><p name="level" id="profile"> {{user.level}} </p>
+    </div>
+    <div>
+    <label>Your points:</label><p name="level" id="profile"> {{user.points}} </p>
+    </div>
+  </div>
 </div>
 
 <form action="/profile-edit">
   <input type="submit" value="Edit profile">
 </form>
-
-</div>
