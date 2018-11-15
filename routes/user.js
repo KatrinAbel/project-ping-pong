@@ -115,7 +115,7 @@ router.post(
 router.get("/open-games", (req, res, next) => {
   let id = req.user._id;
 
-  Match.find({ _player2: id, status: "open" })
+  Match.find({$or: [{ _player2: id, status: "open" }, { _player1: id, status: "open" }]})
     .populate("_player1")
     .populate("_player2")
     .then(matchData => {
