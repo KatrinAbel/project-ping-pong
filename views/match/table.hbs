@@ -1,7 +1,21 @@
-<h2>Choose your playground</h2>
-
+<h2>Schedule a table</h2>
+<br>
 <div id="map"></div>
+<br>
 
+<h3>Choose location</h3>
+<br>
+
+
+{{#each tableData}}
+<button id="Atrium"><a href="/match/{{this._id}}">{{this.address}}</a></button>
+{{/each}}
+
+
+{{!-- 
+<br><br>
+<h3>Choose location</h3>
+<br>
 {{#each tableData}}
 <p>Address: {{this.address}} </p>
 <p>Team: {{this.team}}</p>
@@ -9,6 +23,4 @@
   <a href="/match/{{this._id}}">Select</a>
 </button>
 <br><br>
-{{/each}}
-
-
+{{/each}} --}}

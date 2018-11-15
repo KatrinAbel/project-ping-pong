@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    background-color: white;
+    width: 1000px;
+    border: 5px solid lightblue;
+    padding: 25px;
+    margin: 25px;
+}
+
+.container button a{
+    text-decoration: none;
+    color: black;
+}

@@ -1,26 +1,25 @@
 <br>
 
 <h2>High Scores</h2>
-<br>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Username</th>
-      <th>Team</th>
-      <th>Level</th>
-      <th>Score</th>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+      <th scope="col">Team</th>
+      <th scope="col">Level</th>
+      <th scope="col">Points</th>
     </tr>
   </thead>
+     {{#each userData}}
   <tbody>
-
-  {{#each userData}}
     <tr>
+      <th scope="row">{{@index}}</th>
       <td>{{this.username}}</td>
       <td>{{this.team}}</td>
       <td>{{this.level}}</td>
       <td>{{this.points}}</td>
-    </tr>
     {{/each}}
-
+    </tr>
   </tbody>
 </table>
