@@ -2,13 +2,13 @@
 
 <form action="/confirm" method="POST">
 
-<div class="chosenTable">
+<div class="textboxLayer">
   <p><strong>playground:</strong></p>
   <input type="hidden"name="table" value={{tableData._id}}>
   <p>{{tableData.address}}</p>
 </div>
 
-<div class="chosenTable">
+<div class="textboxLayer">
   <p><strong>opponent:</strong></p>
   {{!-- if opponent direct is true display opponentdirect otherwise display opponentrandom --}}
   {{#if opponentDirect}}
@@ -21,7 +21,7 @@
   {{/if}}
 </div>
 
-<div class="chosenTable">
+<div class="textboxLayer">
   <p><strong>message:</strong></p>
   <input class="inputConfirm" type="textarea" name="message" placeholder="Specify time and date&#10; and send that invite asap!" size="20">
 </div>

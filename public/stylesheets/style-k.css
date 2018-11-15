@@ -51,11 +51,12 @@ h2 {
   text-decoration: none;
 }
 
-.chosenTable {
+.textboxLayer {
   width: 90%;
   background-color: rgba(255, 255, 255, 0.3);
   text-align: center;
   margin: 1em auto; 
+  padding: 0.5em;
 }
 
 .textboxOpponent {
@@ -122,4 +123,35 @@ h2 {
   background-color: white;
   width: 90%;
   margin: 0 auto;
+}
+
+.error-message {
+  width: 90%;
+  background-color: salmon;
+  color: white;
+  font-weight: bolder;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.opengames {
+  width: 90%; 
+  margin: 0 auto;
+}
+
+.btn-open {
+  background-color: white;
+  width: 100%;
+  margin: 0.5em auto; 
+}
+
+.btn-open-delete {
+  background-color: rgba(250,128,114,0.5);
+  color: black;
+  width: 100%;
+  margin: 0.5em auto; 
+}
+
+.openpoints {
+  text-align: right;
 }

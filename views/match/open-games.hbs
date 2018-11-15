@@ -1,36 +1,42 @@
 <br>
-<h1>Open games</h1>
+<h2>Open games</h2>
 
-{{open}}
-<p>Keep track of your scores - enter the points of your matches here:</p>
-<p>If you're not sure about what to enter, check out the <a href="/rules">rules page</a></p>
-<br>
+<div class="textboxLayer"> 
+<p>Keep track of your scores - <strong>enter the points of your matches here:</strong></p>
+<p>(If you're not sure about what to enter, check out the <a class="signup-link" href="/rules">rules page</a>)</p>
+</div>
+
+<div class="opengames">
 
 {{#each matchData}}
 <form action="/points-confirm" method="POST">
 
-<p>Points {{this._player1.username}}:</p>
-<input name="pointsPlayer1" type="number" min="0">
+<div class="openpoints">
+<p><strong>Points {{this._player1.username}}</strong>:
+  <input name="pointsPlayer1" type="number" min="0">
+</p>
 {{!-- Passing the id of player1 in hidden input field  --}}
 <input name="idPlayer1" type="hidden" value={{this._player1._id}}>
 <br>  
 
-<p>Points {{this._player2.username}}:</p>
-<input name="pointsPlayer2" type="number" min="0">
+<p><strong>Points {{this._player2.username}}</strong>:
+  <input name="pointsPlayer2" type="number" min="0">
+</p>
 {{!-- Passing the match id in hidden input field  --}}
 <input name="matchId" type="hidden" value={{this._id}}>
 <br>
+</div>
 
-<br>
-<input type="submit" value="update points">
+<input class="btn btn-open" id="buttontohover" type="submit" value="Update points">
 <br>
 
 </form>
 
 <form action="/points-confirm/delete/{{this._id}}" method="POST">
-<input type="submit" value="The match didn't take place">
+<input class="btn btn-open-delete" id="buttontohover"type="submit" value="The match didn't take place">
 </form>
-<br><br>
-{{body}}
 
+<hr class="line-player">
+<br>
 {{/each}}
+</div>
