@@ -16,14 +16,14 @@
 
 {{#each userData}}
 <div id="overview-container">
-  <div class=" left">
-    <img class="img-overview" src={{this.imgPath}} alt="user-image">
-  </div>
+
+  <img class="img-overview" src={{this.imgPath}} alt="user-image">
+
   <div class=" right">
-    <p class="card-text"></p><strong>Username: </strong></p>
+     <p class="card-text"><strong>Username: </strong></p>
     <p>{{this.username}}</p>
     <p><strong>Level: </strong></p>
-    <p>{{this.level}}</p> <br>
+    <p>{{this.level}}</p> <br> 
   </div>
 </div>
 {{/each}}
