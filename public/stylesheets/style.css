@@ -22,6 +22,9 @@ p {
 .btn{
   background-color: white;
   border-radius: 0px;
+  height: 58px;
+  text-align: center;
+
 }
 
 .btn-hp{
@@ -60,7 +63,7 @@ p {
   margin-top: 5%;
   margin-left: auto;
 	margin-right: auto;
-	display: block;
+  display: block;
 }
 
 .profile-picture{
@@ -77,63 +80,52 @@ become the same size */
   width: 20%;
 } 
 
-/* .profile{
-  width: 300px; 
-} */
-
 .imghomepage{
   display: flex;
   justify-content: center;
 }
-
-/* .profile-information{
-  background-color: white;
-  height: 90%;
-  width: 90%;
-  margin: 0 auto;
-  background-color: rgba(255,255,255,0.5);
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center */
-
-  
 .profile-edit-btn-placeholder{
   margin-top: 5%;
 }
 
-/* .profile-edit-btn{
-  text-align: center;
-  vertical-align: middle;
-}
-
-.profile-headers{
-  font-size: 20px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-#profile{
-  font-size: 15px;
-}
-
-.justtotry{
-  text-align: center;
-} */
-
-#profile-edit-save-btn{
+.profile-edit-save-btn{
   margin-top: 5%;
-}
-
-#profile-delete-btn{
-  margin-top: 5%;
-  background-color: rgba(250,128,114,0.5);
-  color: black;
   width: 100%;
   margin: 0.5em auto;
 }
 
+.profile-delete-btn{
+  background-color: rgba(250,128,114,0.5);
+  margin: 0.5em auto;
+  width: 90%;
+}
 
+.change-un{
+  text-align: center;
+  vertical-align: middle;
+}
 
+.profile-edit-info {
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.5);
+  text-align: center;
+  font-size: 1em;
+  padding: 0.5em;
+}
 
+.file-upload{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-upload {
+  background-color: white;
+  width: 100%;
+  margin: 0.5em auto;
+}
+
+.edit-form {
+  width:90%;
+}
 

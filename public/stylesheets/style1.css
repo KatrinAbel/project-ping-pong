@@ -49,24 +49,89 @@
   margin-left: 10%;
 }
 
-#card {
+/* #wrapper {
+  width: 500px;
+  height: 300px;
+  position: relative;
+}
+.float {
+  background-color: black;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  color: white;
+} */
+/* #float-left {
+  position: fixed;
+}
+#float-right {
+  float: right;
+  height: 30%;
+  width: 40%;
+  margin: 10px;
+}
+ */
+/* .test {
+  height: 180px;
+  width: 300px;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: aliceblue;
+} */
+
+#overview-container {
+  width: 400px;
+  height: 190px;
+  margin-left: 1em;
+  display: flex;
+}
+.float {
+  height: 200px;
+}
+.left {
+  width: 130px;
+  margin-left: 15%;
+  margin-right: 0;
+}
+.right {
+  float: right;
+  width: 190px;
   background-color: white;
-  width: auto;
+  margin-right: 20%;
+  height: 35%;
 }
 
+.img-overview {
+  width: 50%;
+  height: 35%;
+}
 
-#first {
-    width: 200px;
-    float: left;
-    height: 300px;
-        background-color: blue;
+.card-text {
+  padding: 5px;
+  margin-left: 10px;
+  font-family: "Montserrat", sans-serif;
 }
-#second {
-    width: 200px;
-    float: right;
-    height: 300px;
-    background-color: white;
+
+.overviewFilter {
+  background-color: white;
+  border-radius: 0px;
+  height: 30px;
 }
-#clear {
-    clear: both;
+
+.btn-overview {
+  background-color: white;
+  border-radius: 0px;
+}
+
+#text-overview {
+  text-align: center;
+}
+
+#form-overview {
+  margin-top: 10px;
+  margin-right: 10%;
+  margin-left: 15%;
+  margin-bottom: 0px;
 }
