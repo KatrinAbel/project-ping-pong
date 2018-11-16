@@ -17,8 +17,7 @@
   margin-left: 10%;
   margin-right: 10%;
   padding: 5%;
-  background-color: white;
-  opacity: 0.5;
+  background-color: rgba(255,255,255,0.5);
 }
 
 #PendingDiv {
@@ -49,37 +48,6 @@
   margin-left: 10%;
 }
 
-/* #wrapper {
-  width: 500px;
-  height: 300px;
-  position: relative;
-}
-.float {
-  background-color: black;
-  height: 300px;
-  margin: 0;
-  padding: 0;
-  color: white;
-} */
-/* #float-left {
-  position: fixed;
-}
-#float-right {
-  float: right;
-  height: 30%;
-  width: 40%;
-  margin: 10px;
-}
- */
-/* .test {
-  height: 180px;
-  width: 300px;
-  margin-top: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  background-color: aliceblue;
-} */
 
 #overview-container {
   width: 400px;
@@ -88,22 +56,22 @@
   display: flex;
   justify-content: center;
 }
-.float {
+/* .float {
   height: 200px;
-}
-.left {
+} */
+/* .left {
   width: 130px;
   margin-left: 15%;
   margin-right: 0;
-}
+} */
 .right {
   width: 190px;
-  background-color: white;
+  background-color: rgba(255,255,255,0.5);
   height: 70px;
 }
 
 .img-overview {
-  width: 70px;
+  width: 60px;
   height: 70px;
   margin-right: 10px;
 }
@@ -115,6 +83,8 @@
   padding: 5px;
   margin-left: 10px;
   font-family: "Montserrat", sans-serif;
+  font-size: 0.8em; 
+  margin-top: 10px;
 }
 
 .overviewFilter {
@@ -137,4 +107,8 @@
   margin-right: 10%;
   margin-left: 15%;
   margin-bottom: 0px;
+}
+
+.level{
+    margin-top: -7px;
 }
