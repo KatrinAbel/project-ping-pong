@@ -1,5 +1,4 @@
-{{!-- <br>
-<h1>Profile page</h1> --}}
+<h2 class="target">Your profile</h2>
 
 <div class="profile-un">
     <p name="username" id="profile-un"><strong>{{user.username}} </strong></p>
@@ -11,20 +10,20 @@
 
 <div class="profile-info">
 
-    <pclass="profile-head">Username:</p>
-    <p name="username" class="profile line-height"><strong>{{user.username}}</strong></p>
+    <p class="profile-head"><strong>Username</strong></p>
+    <p name="username" class="profile line-height">{{user.username}}</p>
   
-    <p class="profile-head">Team:</p>
-    <p name="team" class="profile line-height"><strong>{{user.team}}</strong></p>
+    <p class="profile-head"><strong>Team</strong></p>
+    <p name="team" class="profile line-height">{{user.team}}</p>
  
-    <p class="profile-head">Your level:</p>
-    <p name="level" class="profile line-height"><strong>{{user.level}}</strong></p>
+    <p class="profile-head"><strong>Your level</strong></p>
+    <p name="level" class="profile line-height">{{user.level}}</p>
 
-    <p class="profile-head">Your points:</p>
-    <p name="points" class="profile line-height"><strong>{{user.points}}</strong></p>
+    <p class="profile-head"><strong>Your points</strong></p>
+    <p name="points" class="profile line-height">{{user.points}}</p>
 
 </div>
  <hr class="line-player">
 <form class="d-flex justify-content-center" action="/profile-edit">
-  <input class="btn btn-edit" id="buttontohover" type="submit" value="Edit profile" class="btn">
+  <input class="btn btn-edit" id="buttontohover" type="submit" value="Edit profile">
 </form>

@@ -101,6 +101,7 @@ router.post("/confirm", ensureAuthenticated, (req, res, next) => {
 
   // define variables for new match
   let table = req.body.table
+  let tableAddress = req.body.tableAddress
 
   let playerOne = req.user._id
  
@@ -149,11 +150,18 @@ router.post("/confirm", ensureAuthenticated, (req, res, next) => {
         html:
         `
         <b>Hello ${opponentUsername}, you have been challenged!</b>
-        <p>${req.user.username} has invited you to join a Ping Pong match! Head to our site and confirm the match now :) </p>
+        <p>${req.user.username} has invited you to join a Ping Pong match! <br>
+        Here are the details: <br>
+        Where: ${tableAddress} <br>
+        Message: ${message} <br>
+        So head on over to our <a href="https://ironhack-pingpong.herokuapp.com/">site</a> and confirm the match now.</p>
+        <p>Let the best ping pong player lead the highscore ;) </p>
+        <br>
+        <p> If the link doesn't work you can always go here https://ironhack-pingpong.herokuapp.com/ </p>
         `,
       })
 
-      .then(info => res.render('homepage'))
+      .then(info => res.redirect('/homepage'))
       .catch(error => console.log("Error sending mail", error))
     })
   })
