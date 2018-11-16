@@ -1,24 +1,23 @@
-<br>
-<h1>Pending invitation</h1>
-{{test}}
-
-<br><br>
+<h2>Pending invitation</h2>
 {{#each matchData}}
-<div id="PendingDiv">
 
-  <p>You have an invite from: {{this._player1.username}}</p>
-  <p>Where: {{this._table.address}}</p>
-  <p> Message from opponent: {{this.message}}</p>
+<div class="textboxLayer">
+  <p><strong>You have an invite from:</strong> {{this._player1.username}}</p>
+  <p><strong>Where: </strong> <br>
+  {{this._table.address}}</p>
+  <p><strong>Message from opponent: </strong><br>
+    {{this.message}}</p>
 </div>
 
 
-<form action="/pending-invite/decline/{{this._id}}" method="POST">
-  <input type="submit" value="Decline Match" class="btn">
+<form class="d-flex justify-content-center" action="/pending-invite/accept/{{this._id}}" method="POST">
+  <input type="submit" value="Accept match" class="btn btn-pending" id="buttontohover">
 </form>
 
-
-<form action="/pending-invite/accept/{{this._id}}" method="POST">
-  <input type="submit" value="Accept match" id="PendingButton2">
+<form class="d-flex justify-content-center" action="/pending-invite/decline/{{this._id}}" method="POST">
+  <input type="submit" value="Decline Match" class="btn btn-pending-delete" id="buttontohover">
 </form>
+
+</div>
+<hr class="line-player">
 {{/each}}
-<br><br>

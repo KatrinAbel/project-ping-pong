@@ -22,6 +22,9 @@ p {
 .btn{
   background-color: white;
   border-radius: 0px;
+  height: 58px;
+  text-align: center;
+
 }
 
 .btn-hp{
@@ -60,7 +63,7 @@ p {
   margin-top: 5%;
   margin-left: auto;
 	margin-right: auto;
-	display: block;
+  display: block;
 }
 
 .profile-picture{
@@ -81,22 +84,20 @@ become the same size */
   display: flex;
   justify-content: center;
 }
-  
 .profile-edit-btn-placeholder{
   margin-top: 5%;
 }
 
-#profile-edit-save-btn{
+.profile-edit-save-btn{
   margin-top: 5%;
-}
-
-#profile-delete-btn{
-  margin-top: 5%;
-  background-color: rgba(250,128,114,0.5);
-  color: black;
   width: 100%;
   margin: 0.5em auto;
-  border-radius: 0px;
+}
+
+.profile-delete-btn{
+  background-color: rgba(250,128,114,0.5);
+  margin: 0.5em auto;
+  width: 90%;
 }
 
 .change-un{
@@ -104,12 +105,27 @@ become the same size */
   vertical-align: middle;
 }
 
-.file-upload{
+.profile-edit-info {
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.5);
   text-align: center;
-  margin: auto;
+  font-size: 1em;
+  padding: 0.5em;
 }
 
-.dropdown-team{
-  border: solid;
-  
+.file-upload{
+  display: flex;
+  justify-content: center;
 }
+
+.btn-upload {
+  background-color: white;
+  width: 100%;
+  margin: 0.5em auto;
+}
+
+.edit-form {
+  width:90%;
+}
+
