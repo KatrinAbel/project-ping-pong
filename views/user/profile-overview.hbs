@@ -1,8 +1,9 @@
+<br><br>
 <h2>Profile Overview</h2>
 
-<p>Find out who's playing in your team or a team closeby!</p>
+<p id="text-overview">Find out who's playing in your<br>team or a team closeby!</p>
 
-<form>
+<form id="form-overview">
   <select class="overviewFilter" name="overviewFilter">
     <option></option>
     <option class="option1">wework, Potsdamer Platz</option>
@@ -13,41 +14,16 @@
 
 <br><br>
 
-
-{{!-- {{#each userData}}
-<div class="card">
-  <img class="img" src="{{this.imgPath}}"" alt=" Profile-picture">
-  <div class="card-body">
-    <p class="card-text">Name: {{this.username}}</p>
-    <p class="card-text">Level: {{this.level}}</p>
-  </div>
-</div>
-{{/each}} --}}
-
-{{!-- <div class="picture-holder">
-  <img class="profile-picture" src={{user.imgPath}} alt="user-image">
-</div>
-
-<div class="card">
-  <p class="card-text">Name: {{this.username}}</p>
-  <p class="card-text">Level: {{this.level}}</p>
-</div> --}}
-
-{{!-- <div class="test">
-  <div id="picture-holder">
-    <img class="profile-picture" src={{user.imgPath}} alt="user-image">
-  </div>
-</div> --}}
-
 {{#each userData}}
-<div id="wrapper">
+<div id="overview-container">
   <div class=" left">
-    <img class="profile-overview" src={{this.imgPath}} alt="user-image">
+    <img class="img-overview" src={{this.imgPath}} alt="user-image">
   </div>
   <div class=" right">
-    <p>Name: </p>
-    <p class="card-text">{{this.username}}</p>
-    <p class="card-text">Level: {{this.level}}</p>
+    <p class="card-text"></p><strong>Username: </strong></p>
+    <p>{{this.username}}</p>
+    <p><strong>Level: </strong></p>
+    <p>{{this.level}}</p> <br>
   </div>
 </div>
 {{/each}}

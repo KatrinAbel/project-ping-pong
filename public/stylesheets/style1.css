@@ -81,29 +81,57 @@
   background-color: aliceblue;
 } */
 
-#wrapper {
-  width: 300px;
+#overview-container {
+  width: 400px;
   height: 190px;
-  position: relative;
-  margin: 10%;
+  margin-left: 1em;
   display: flex;
 }
 .float {
   height: 200px;
 }
 .left {
-  width: 90px;
-  margin-left: 10%;
+  width: 130px;
+  margin-left: 15%;
+  margin-right: 0;
 }
 .right {
   float: right;
-  width: 90px;
+  width: 190px;
   background-color: white;
   margin-right: 20%;
-  height: 60%;
+  height: 35%;
 }
 
-.profile-overview {
-  width: 90%;
-  height: 60%;
+.img-overview {
+  width: 50%;
+  height: 35%;
+}
+
+.card-text {
+  padding: 5px;
+  margin-left: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.overviewFilter {
+  background-color: white;
+  border-radius: 0px;
+  height: 30px;
+}
+
+.btn-overview {
+  background-color: white;
+  border-radius: 0px;
+}
+
+#text-overview {
+  text-align: center;
+}
+
+#form-overview {
+  margin-top: 10px;
+  margin-right: 10%;
+  margin-left: 15%;
+  margin-bottom: 0px;
 }
