@@ -24,15 +24,15 @@
 #map {
   width: 90%;
   height: 400px;
-  margin: 0.5em 1em;
+  margin: 0.5em auto;
 }
 
-h2 {
+.h2-class {
   font-size: 1.5em;
   text-align: center;
   color: black;
   margin: 0.2em;
-}
+} 
 
 .btn-table{
   background-color: white;
@@ -206,4 +206,14 @@ h2 {
   background-color: rgba(250,128,114,0.5);
   color: black;
   width: 90%;
+}
+
+.target{
+  display: none;
+}
+
+.nav-header {
+  display: inline;
+  margin-left: 0.5em;
+  font-size: 0.8em;
 }
