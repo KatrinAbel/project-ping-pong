@@ -1,7 +1,7 @@
 window.onload = () => {
   const center = {
-    lat: 52.5120361,
-    lng: 13.39919
+    lat: 52.5063688,
+    lng: 13.3711224,
   };
   
   const map = new google.maps.Map(document.getElementById('map'), {

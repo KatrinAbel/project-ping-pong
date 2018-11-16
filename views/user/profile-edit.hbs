@@ -7,24 +7,20 @@
 <div id="picture-holder">
   <img class="profile-picture" src={{user.imgPath}} alt="user-image">
 </div>
+
 <br>
 
 <div class="d-flex justify-content-center flex-wrap">
-
 <form class="edit-form" action="/profile-edit" method="POST" enctype="multipart/form-data">
-
   <div class="d-flex justify-content-center flex-wrap">
   <button class="btn btn-upload" id="buttontohover">
   <input type="file" name="photo" value={{user.imgPath}}>
   </button>
   </div>
-
   <div class="profile-edit-info">
-
   <p class="profile-head"><strong>Username</strong></p>
   <input type="text" class="change-un" name="username" value={{user.username}}>
   <br>
-
     <div>
       <p class="profile-head"><strong>Team</strong></p>
       <div class="custom-select" style="width:300px;">
@@ -34,7 +30,6 @@
       </select>
       </div>
     </div>
-
     <div>
       <p class="profile-head"><strong>Level</strong></p>
       <div class="custom-select" style="width:300px;">
@@ -45,14 +40,11 @@
       </select>
       </div>
     </div>
-
   </div>
 
 <input type="submit" value="Save changes" class="btn profile-edit-save-btn d-flex justify-content-center" id="buttontohover">
 </form>
 </div>
-
-
 
 <form class="d-flex justify-content-center" action="/profile-delete" method="POST">
 <input class="btn profile-delete-btn" id="buttontohover" type="submit" value="Delete profile">
