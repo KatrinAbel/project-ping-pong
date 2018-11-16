@@ -1,28 +1,29 @@
-<br><br>
-<h2>Profile Overview</h2>
+<h2 class="target">Profile Overview</h2>
 
+<br>
 <p id="text-overview">Find out who's playing in your<br>team or a team closeby!</p>
 
-<form id="form-overview">
+<form id="form-overview" class="d-flex justify-content-center flex-wrap">
   <select class="overviewFilter" name="overviewFilter">
     <option></option>
     <option class="option1">wework, Potsdamer Platz</option>
     <option class="option2">wework, at Atrium Tower</option>
   </select>
-  <button type="submit" class="btn-overview">apply filter</button>
+  <button type="submit" class="btn-overview btn btn-edit" id="buttontohover">apply filter</button>
 </form>
 
-<br><br>
+<br>
 
 {{#each userData}}
-<div id="overview-container">
+<div class="overview-container d-flex justify-content-center">
 
-  <img class="img-overview" src={{this.imgPath}} alt="user-image">
-
+  <img class="img-overview" src={{this.imgPath}} alt="user-Imag">
   <div class="right">
-    <p class="card-text"><strong>Username: </strong>{{this.username}}</p>
-    <p class="card-text level"><strong>Level: </strong>{{this.level}}</p>
-   
+    <p class="card-text"><strong>Username: <br>
+    </strong>{{this.username}}</p>
+    <p class="card-text"><strong>Level: <br>
+    </strong>{{this.level}}</p>
   </div>
+
 </div>
 {{/each}}

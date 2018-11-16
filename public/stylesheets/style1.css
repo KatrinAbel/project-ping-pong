@@ -48,31 +48,21 @@
   margin-left: 10%;
 }
 
-
-#overview-container {
-  width: 400px;
-  height: 77px;
-  margin-left: 1em;
-  display: flex;
-  justify-content: center;
+.overview-container {
+  width: 100%;
+  height: 120px;
+  margin-top: 0.5em;
 }
-/* .float {
-  height: 200px;
-} */
-/* .left {
-  width: 130px;
-  margin-left: 15%;
-  margin-right: 0;
-} */
+
 .right {
-  width: 190px;
+  width: 60%;
   background-color: rgba(255,255,255,0.5);
-  height: 70px;
+  height: 120px;
+  vertical-align: middle;
 }
 
 .img-overview {
-  width: 60px;
-  height: 70px;
+  height: 120px;
   margin-right: 10px;
 }
 .image-holder {
@@ -81,16 +71,13 @@
 
 .card-text {
   padding: 5px;
-  margin-left: 10px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.8em; 
-  margin-top: 10px;
+  font-size: 1em; 
 }
 
 .overviewFilter {
-  background-color: white;
-  border-radius: 0px;
-  height: 30px;
+  width: 90%;
+  height: 40px;
+  margin-bottom: 0.2em;
 }
 
 .btn-overview {
@@ -103,12 +90,5 @@
 }
 
 #form-overview {
-  margin-top: 10px;
-  margin-right: 10%;
-  margin-left: 15%;
-  margin-bottom: 0px;
-}
-
-.level{
-    margin-top: -7px;
+  margin: 0.5em auto;
 }

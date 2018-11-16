@@ -172,8 +172,9 @@ router.post("/confirm", ensureAuthenticated, (req, res, next) => {
 router.get("/highscores", ensureAuthenticated, (req, res, next) => {
   User.find().sort( { points: -1 } ).limit(10)
   .then(userData => {
+    let queen = userData[0].username
     console.log("usedata", userData)
-    res.render("highscores", {userData});
+    res.render("highscores", {userData, queen});
   }
   )
 });

@@ -13,18 +13,18 @@
 <div class="d-flex justify-content-center flex-wrap">
 <form class="edit-form" action="/profile-edit" method="POST" enctype="multipart/form-data">
   <div class="d-flex justify-content-center flex-wrap">
-  <button class="btn btn-upload" id="buttontohover">
+  <button class="btn btn-upload">
   <input type="file" name="photo" value={{user.imgPath}}>
   </button>
   </div>
   <div class="profile-edit-info">
   <p class="profile-head"><strong>Username</strong></p>
-  <input type="text" class="change-un" name="username" value={{user.username}}>
+  <input type="text" class="dropdown" name="username" value={{user.username}}>
   <br>
     <div>
       <p class="profile-head"><strong>Team</strong></p>
-      <div class="custom-select" style="width:300px;">
-      <select name="team" class="team-dropdown">
+      <div >
+      <select class="dropdown"t name="team">
       <option value="wework, Potsdamer Platz">wework, Potsdamer Platz</option>
       <option value="wework, at Atrium Tower">wework, at Atrium Tower</option>
       </select>
@@ -32,11 +32,11 @@
     </div>
     <div>
       <p class="profile-head"><strong>Level</strong></p>
-      <div class="custom-select" style="width:300px;">
-      <select name="level" class="team-dropdown">
-        <option value="beginner">Beginner</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="professional">Professional</option>
+       <div>
+      <select class="dropdown" name="level">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Professional">Professional</option>
       </select>
       </div>
     </div>
