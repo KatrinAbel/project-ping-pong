@@ -24,25 +24,30 @@
 </div>
 {{/each}} --}}
 
-<div class="picture-holder">
+{{!-- <div class="picture-holder">
   <img class="profile-picture" src={{user.imgPath}} alt="user-image">
-</div> 
+</div>
 
 <div class="card">
   <p class="card-text">Name: {{this.username}}</p>
   <p class="card-text">Level: {{this.level}}</p>
-</div>
+</div> --}}
 
-{{!-- <div id="header"></div>
-<div id="container">
-{{#each userData}}
+{{!-- <div class="test">
   <div id="picture-holder">
     <img class="profile-picture" src={{user.imgPath}} alt="user-image">
   </div>
-  <div id="second">
-    <p class="card-text">Name: {{this.username}}</p>
+</div> --}}
+
+{{#each userData}}
+<div id="wrapper">
+  <div class=" left">
+    <img class="profile-overview" src={{this.imgPath}} alt="user-image">
+  </div>
+  <div class=" right">
+    <p>Name: </p>
+    <p class="card-text">{{this.username}}</p>
     <p class="card-text">Level: {{this.level}}</p>
   </div>
-  <div id="clear"></div>
-{{/each}} 
-</div> --}}
+</div>
+{{/each}}
