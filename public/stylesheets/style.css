@@ -77,49 +77,14 @@ become the same size */
   width: 20%;
 } 
 
-/* .profile{
-  width: 300px; 
-} */
-
 .imghomepage{
   display: flex;
   justify-content: center;
 }
-
-/* .profile-information{
-  background-color: white;
-  height: 90%;
-  width: 90%;
-  margin: 0 auto;
-  background-color: rgba(255,255,255,0.5);
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center */
-}  */
   
 .profile-edit-btn-placeholder{
   margin-top: 5%;
 }
-
-/* .profile-edit-btn{
-  text-align: center;
-  vertical-align: middle;
-}
-
-.profile-headers{
-  font-size: 20px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-#profile{
-  font-size: 15px;
-}
-
-.justtotry{
-  text-align: center;
-} */
 
 #profile-edit-save-btn{
   margin-top: 5%;
@@ -132,10 +97,19 @@ become the same size */
   width: 100%;
   margin: 0.5em auto;
   border-radius: 0px;
-
 }
 
+.change-un{
+  text-align: center;
+  vertical-align: middle;
+}
 
+.file-upload{
+  text-align: center;
+  margin: auto;
+}
 
-
-
+.dropdown-team{
+  border: solid;
+  
+}
