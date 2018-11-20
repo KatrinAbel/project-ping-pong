@@ -65,7 +65,10 @@
 
 .img-overview {
   height: 120px;
+  width: 100px;
   margin-right: 10px;
+  object-fit: cover;
+
 }
 .image-holder {
   width: 100px;
